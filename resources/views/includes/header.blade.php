@@ -13,7 +13,9 @@
                 <li><a href="{{route('index')}}" class="@yield('home')">{{ __('menu.home') }}</a></li>
                 <li class="dropdown"><a href="#"><span>{{ __('menu.petition') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Drop Down 1</a></li>
+                        @foreach(App\Http\Controllers\DocumentController::petitionList() as $key => $value)
+                        <li><a href="{{route('documents.show',$key)}}">{{ \App\Models\Values::find($key)->value}}</a></li>
+                        @endforeach
                         <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
                                 <li><a href="#">Deep Drop Down 1</a></li>

@@ -17,19 +17,22 @@
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
-                <h4>Useful Links</h4>
+                <h4>{{ __('footer.links') }}</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">{{ __('menu.home') }}</a></li>
+                    <li><a href="#">{{ __('footer.about') }}</a></li>
+                    <li><a href="{{route('documents.index', ['Evrak'])}}">{{ __('menu.petition') }}</a></li>
+                    <li><a href="#">{{ __('menu.contract') }}</a></li>
+                    <li><a href="#">{{ __('menu.judicial') }}</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
-                <h4>Our Services</h4>
+                <h4>{{ __('footer.lastdocuments') }}</h4>
                 <ul>
+                    @foreach(\App\Models\Document::take(5)->get() as $key => $value)
+                    <li><a href="#">Web Design</a></li>
+                    @endforeach
                     <li><a href="#">Web Design</a></li>
                     <li><a href="#">Web Development</a></li>
                     <li><a href="#">Product Management</a></li>
@@ -39,13 +42,13 @@
             </div>
 
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                <h4>Contact Us</h4>
+                <h4>{{ __('menu.contact') }}</h4>
                 <p>
-                    A108 Adam Street <br>
-                    New York, NY 535022<br>
-                    United States <br><br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br>
-                    <strong>Email:</strong> info@example.com<br>
+                    Kurtköy Mah. Ankara Cad.<br>
+                    Pendik P.K. 34912<br>
+                    İstanbul <br><br>
+                    <strong>Telefon:</strong> +90 532 497 22 38<br>
+                    <strong>Email:</strong> bilgi@dilekcesepeti.com.tr<br>
                 </p>
 
             </div>
@@ -55,10 +58,10 @@
 
     <div class="container mt-4">
         <div class="copyright">
-            &copy; Copyright <strong><span>Logis</span></strong>. All Rights Reserved
+            &copy; <strong><span>{{ __('footer.copyright') }}</span></strong>
         </div>
         <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            {{ __('footer.designed') }} <a target="_blank" href="https://pendikyazilim.com/">Pendik Yazılım</a>
         </div>
     </div>
 
