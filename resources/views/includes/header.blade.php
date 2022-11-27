@@ -47,7 +47,7 @@
                         <li><a href="#">Drop Down 4</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">{{ __('menu.contact') }}</a></li>
+                <li><a href="{{route('contact.create')}}">{{ __('menu.contact') }}</a></li>
                 <li><a class="get-a-quote" href="{{route('login')}}">{{ __('menu.login') }}</a></li>
             </ul>
         </nav><!-- .navbar -->

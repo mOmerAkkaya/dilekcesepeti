@@ -222,9 +222,9 @@
 
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h3>Call To Action</h3>
-                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <h3>{{ __('pages/index.callToAction.title') }}</h3>
+                    <p> {{ __('pages/index.callToAction.titleSub') }}</p>
+                    <a class="cta-btn" href="#">{{ __('pages/index.callToAction.button') }}</a>
                 </div>
             </div>
 
@@ -241,15 +241,14 @@
                     <img src="{{asset('img/features-1.jpg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>{{ __('pages/index.whiteField.first.title') }}</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        Belgelerinizi düzenlemede size yardımcı oluyoruz.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><i class="bi bi-check"></i> Ullam est qui quos consequatur eos accusamus.</li>
+                        <li><i class="bi bi-check"></i> Mevcut {{App\Http\Controllers\CountController::petition()}} dilekçeden istediğiniz herhangi birini seçin.</li>
+                        <li><i class="bi bi-check"></i> Mevcut {{App\Http\Controllers\CountController::contract()}} sözleşmeden istediğiniz herhangi birini seçin.</li>
+                        <li><i class="bi bi-check"></i> Şimdiden {{App\Http\Controllers\CountController::process()}} kullanıcı bize güvendi. Dökümanları, avukat ve hukukçulardan oluşan bir ekip hazırlıyor. Türkiye'de {{App\Http\Controllers\CountController::petition()+App\Http\Controllers\CountController::contract()}} yazışma ve sözleşme örneği mevcut</li>
                     </ul>
                 </div>
             </div><!-- Features Item -->
@@ -259,7 +258,7 @@
                     <img src="{{asset('img/features-2.jpg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7 order-2 order-md-1">
-                    <h3>Corporis temporibus maiores provident</h3>
+                    <h3>{{ __('pages/index.whiteField.second.title') }}</h3>
                     <p class="fst-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua.
@@ -277,7 +276,7 @@
                     <img src="{{asset('img/features-3.jpg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7">
-                    <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
+                    <h3>{{ __('pages/index.whiteField.third.title') }}</h3>
                     <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
                     <ul>
                         <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
@@ -292,7 +291,7 @@
                     <img src="{{asset('img/features-4.jpg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7 order-2 order-md-1">
-                    <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+                    <h3>{{ __('pages/index.whiteField.fourth.title') }}</h3>
                     <p class="fst-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua.

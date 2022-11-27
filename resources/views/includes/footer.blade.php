@@ -30,14 +30,9 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>{{ __('footer.lastdocuments') }}</h4>
                 <ul>
-                    @foreach(\App\Models\Document::take(5)->get() as $key => $value)
-                    <li><a href="#">Web Design</a></li>
+                    @foreach(\App\Models\Document::orderBy('id','desc')->take(5)->get() as $key => $value)
+                    <li><a href="#">{{$value->name}}</a></li>
                     @endforeach
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Product Management</a></li>
-                    <li><a href="#">Marketing</a></li>
-                    <li><a href="#">Graphic Design</a></li>
                 </ul>
             </div>
 
@@ -77,7 +72,6 @@
 <script src="{{asset('vendor/glightbox/js/glightbox.min.js')}}"></script>
 <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('vendor/aos/aos.js')}}"></script>
-<script src="{{asset('vendor/php-email-form/validate.js')}}"></script>
 
 <!-- Template Main JS File -->
 <script src="{{asset('js/main.js')}}"></script>

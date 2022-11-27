@@ -31,5 +31,24 @@ return [
         'fifthSub' => 'Herhangi bir suçtan dolayı mağdur oldunuz ve bu yaşadığız haksızlığın cezasız kalmamasını istiyorsanız Suç Duyurusu Dilekçesini doldurup suçun işlendiği yer olan yetkili Cumhuriyet Başsavcılığına teslim edin.',
         'sixth' => 'İDARİ DİLEKÇELER',
         'sixthSub' => 'Kamu Kurumlarına (İdare) ve Özel işletmelere yapacağınız özlük, üniversite eğitimi, iş hayatı ile ilgili yazılı talep dilekçelerini bulabilirsiniz. Politikamız gereği Üniversite ve Lise Kategorisindeki dilekçeler ücretsizdir.',
-]
+    ],
+    'callToAction' => [
+        'title' => 'Hukuksal Destek Al',
+        'titleSub' => 'Konut, aile hukuku, borç tahsilatı ve diğer birçok sorun türündeki haklarınızı korumak için danışın.',
+        'button' => 'Hemen Ara',
+        ],
+    'whiteField' => [
+        'first' => [
+            'title' => 'DİLEKÇE VEYA SÖZLEŞME ÖRNEĞİNİ BULUN',
+        ],
+        'second' => [
+            'title' => 'DÖKÜMANI İSTEDİĞİNİZ GİBİ DOLDURUN',
+        ],
+        'third' => [
+            'title' => 'KAYDET VE YAZDIR',
+        ],
+        'fourth' => [
+            'title' => 'İSTEDİĞİN ZAMAN TEKRAR DÜZENLE',
+        ],
+    ],
 ];
