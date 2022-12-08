@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>{{$page->title}}</title>
+<title>@yield('title', $page->title)</title>
 <meta content="{{$page->description}}" name="description">
 
 @if ($page->no_index=="yes")
@@ -9,6 +9,7 @@
 @endif
 
 <link href="{{asset('img/favicon.ico')}}" rel="icon">
+<link rel="canonical" href="{{url()->full()}}" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

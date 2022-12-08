@@ -19,7 +19,7 @@ class DocumentController extends Controller
     {
         $page = Page::where('slug', 'index')->firstOrFail();
         $query  =   $request["query"];
-        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->get();
+        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->simplepaginate(1);
         return view('pages.result', compact('data','query','page'));
     }
 
@@ -92,5 +92,9 @@ class DocumentController extends Controller
     public static function petitionList()
     {
         return Document::where("doc_type", config::get('constants.doc_type')["petition"])->get()->groupBy("cat");
+    }
+    public static function contractList()
+    {
+        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->get()->groupBy("cat");
     }
 }

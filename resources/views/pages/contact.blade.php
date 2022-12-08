@@ -63,23 +63,24 @@
                     <form action="{{route('contact.store')}}" method="post" class="php-email-form">
                         @csrf
                         <input type="hidden" name="type" value="PageContactForm" />
+                        <input type="hidden" name="user_id" value="{{@Auth::user()->id}}" />
                         <input type="hidden" name="secretCaptcha" value="@php $captcha = rand(1,10); $captcha2 = rand(1,10); echo $code = $captcha + $captcha2; @endphp" />
                         <div class="row">
                             <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="Name" placeholder="@Lang('pages/contact.name')">
+                                <input required type="text" name="name" class="form-control" id="Name" value="{{@Auth::user()->name}}" placeholder="@Lang('pages/contact.name')">
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="@Lang('pages/contact.email')">
+                                <input required type="email" class="form-control" name="email" id="email" value="{{@Auth::user()->email}}" placeholder="@Lang('pages/contact.email')">
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="gsm" id="Gsm" placeholder="@Lang('pages/contact.gsm')">
+                            <input required type="text" class="form-control" name="gsm" id="gsm" placeholder="@Lang('pages/contact.gsm')">
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="@Lang('pages/contact.message')"></textarea>
+                            <textarea required class="form-control" name="message" rows="5" placeholder="@Lang('pages/contact.message')"></textarea>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" id="Captcha" name="captcha" placeholder="{{$captcha . ' + ' . $captcha2}}">
+                            <input type="text" required class="form-control" id="Captcha" name="captcha" placeholder="{{$captcha . ' + ' . $captcha2}}">
                         </div>
                         <div class="form-group mt-3">
                             <center><button type="submit">{{ __('pages/contact.submit') }}</button></center>
