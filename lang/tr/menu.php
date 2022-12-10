@@ -12,5 +12,6 @@ return [
     'process'       => 'İşlem',
     'result'        => 'Arama Sonuçları',
     'resultfor'     => 'İçin Arama Sonuçları',
+    'notfound'      => 'Sonuç Bulunamadı', 
     'total'         => 'Bulunan Döküman Sayısı : ', 
 ];

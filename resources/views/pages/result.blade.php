@@ -28,6 +28,7 @@
     <section class="sample-page">
         <div class="container" data-aos="fade-up">
             <p>
+                @if(count($data))
             <div class="list-group">
                 @foreach ($data as $key => $value)
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true">
@@ -40,6 +41,11 @@
                 </a>
                 @endforeach
             </div>
+            @else
+            <div class="alert alert-dark text-center fs-3 text shadow-lg p-3 mb-5 rounded" role="alert">
+                {{ __('menu.notfound') }}
+            </div>
+            @endif
             </p>
             {{ $data->links() }}
 

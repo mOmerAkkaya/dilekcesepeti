@@ -19,7 +19,7 @@ class DocumentController extends Controller
     {
         $page = Page::where('slug', 'index')->firstOrFail();
         $query  =   $request["query"];
-        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->simplepaginate(1);
+        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->cursorPaginate(2);
         return view('pages.result', compact('data','query','page'));
     }
 
