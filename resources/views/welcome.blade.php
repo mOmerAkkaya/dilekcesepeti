@@ -316,7 +316,7 @@
                     @foreach($latestComments as $key => $value)
                     <div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="{{asset('https://trendmiya.com/wp-content/uploads/2022/10/Kisiye-Ozel-Siyah-Dolma-Kalem.webp')}}" class="testimonial-img" alt="">
+                            <img src="{{asset('img/dilekce.jpg')}}" class="testimonial-img" alt="">
                             <h3>{{$value->uname}}</h3>
                             <h4>{{$value->dname}}</h4>
                             <div class="stars">
