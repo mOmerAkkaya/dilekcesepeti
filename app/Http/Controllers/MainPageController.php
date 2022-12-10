@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
+use App\Models\Document;
+use App\Models\Comments;
 
 class MainPageController extends Controller
 {
     public function index()
     {
-        $page = Page::where('slug', 'index')->firstOrFail();
-        return view("welcome", compact('page'));
+        $latestComments =   Comments::join('users', 'users.id', 'comments.user_id')->join('documents', 'documents.id', 'comments.document_id')->select('users.name as uname','documents.name as dname', 'comments.*')->orderBy('comments.id','desc')->limit(3)->get();
+        $page           =   Page::where('slug', 'index')->firstOrFail();
+        $document       =   Document::with('doc_type', 'sub_doc_type')->orderBy('id','desc')->get();
+        return view("welcome", compact('page','document', 'latestComments'));
     }
 }

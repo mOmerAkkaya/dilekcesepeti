@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Config;
 
 class Document extends Model
 {
@@ -12,4 +13,19 @@ class Document extends Model
     use SoftDeletes;
     use HasFactory;
 
+    public function doc_type(){
+        return $this->hasOne('\App\Models\Values','id', 'doc_type');
+    }
+    public function sub_doc_type()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
+    }
+    public function sub_dotypec_type()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
+    }
+    public function cat()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
+    }
 }

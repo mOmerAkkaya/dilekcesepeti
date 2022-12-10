@@ -30,7 +30,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>{{ __('footer.lastdocuments') }}</h4>
                 <ul>
-                    @foreach(\App\Models\Document::orderBy('id','desc')->take(5)->get() as $key => $value)
+                    @foreach($document->take(5) as $key => $value)
                     <li><a href="#">{{$value->name}}</a></li>
                     @endforeach
                 </ul>

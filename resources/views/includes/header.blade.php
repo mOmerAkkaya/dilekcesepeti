@@ -14,7 +14,7 @@
                 <li class="dropdown"><a href="#"><span>{{ __('menu.petition') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         @foreach(App\Http\Controllers\DocumentController::petitionList() as $key => $value)
-                        <li><a href="{{route('documents.show',$key)}}">{{ \App\Models\Values::find($key)->value}}</a></li>
+                        <li><a href="{{route('documents.show',$key)}}">{{$value[0]["value"]}}</a></li>
                         @endforeach
                         <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
@@ -33,7 +33,7 @@
                 <li class="dropdown"><a href="#"><span>{{ __('menu.contract') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         @foreach(App\Http\Controllers\DocumentController::contractList() as $key => $value)
-                        <li><a href="{{route('documents.show',$key)}}">{{ \App\Models\Values::find($key)->value}}</a></li>
+                        <li><a href="{{route('documents.show',$key)}}">{{$value[0]["value"]}}</a></li>
                         @endforeach
                         <li><a href="#">Drop Down 1</a></li>
                         <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>

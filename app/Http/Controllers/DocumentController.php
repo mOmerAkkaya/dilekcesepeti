@@ -91,10 +91,10 @@ class DocumentController extends Controller
 
     public static function petitionList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["petition"])->get()->groupBy("cat");
+        return Document::where("doc_type", config::get('constants.doc_type')["petition"])->join('values', 'documents.cat','values.id')->get()->groupBy("cat");
     }
     public static function contractList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->get()->groupBy("cat");
+        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->join('values', 'documents.cat', 'values.id')->get()->groupBy("cat");
     }
 }
