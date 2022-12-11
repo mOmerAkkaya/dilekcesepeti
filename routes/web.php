@@ -7,7 +7,8 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\PanelDocuments;
+use App\Http\Controllers\PanelHome;
 
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
@@ -26,6 +27,8 @@ Route::group(['prefix' => 'documents', 'as' => 'documents.'], function () {
 
 Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
+    Route::resource('documents', PanelDocuments::class);
+
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
