@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('home','active')
+@section('searchresult','active')
+@section('title', @$query . ' '. __('menu.resultfor'))
 @section('content')
 <main id="main">
 
@@ -31,14 +32,16 @@
                 @if(count($data))
             <div class="list-group">
                 @foreach ($data as $key => $value)
-                <a href="{{route('documents.show',[$value->slug])}}" class="list-group-item list-group-item-action" aria-current="true">
+                <a href="{{route('documents.show',[$value->slug])}}" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$value->name}}</h5>
-                        <small>Süre 1 dk.</small>
+                        <small class="text-muted">Süre {{$value->time}} dk.</small>
                     </div>
                     <p class="mb-1">{{$value->description}}</p>
-                    <small>{{$value->get_doc_type->value}}</small>
+                    <small class="text-muted">{{$value->get_doc_type->value}} - {{$value->get_sub_doc_type->value}} - {{$value->get_cat->value}} - {{$value->get_sub_cat->value}}</small>
+                    <small class="text-muted" style="float: right;">Evrak Ücreti {{$value->price}} ₺</small>
                 </a>
+                <br />
                 @endforeach
             </div>
             @else

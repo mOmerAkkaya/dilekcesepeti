@@ -16,9 +16,18 @@ class Document extends Model
     public function get_doc_type(){
         return $this->hasOne('\App\Models\Values','id', 'doc_type');
     }
+    public function get_sub_doc_type()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'sub_doc_type');
+    }
     public function get_cat()
     {
         return $this->hasOne('\App\Models\Values', 'id', 'cat');
     }
+    public function get_sub_cat()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'sub_cat');
+    }
+    
    
 }

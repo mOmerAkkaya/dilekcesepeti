@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>@yield('title', $page->title)</title>
+<title>@yield('title', $page->title, 'Dilekçe Sepeti')</title>
 <meta content="{{$page->description}}" name="description">
 
 @if ($page->no_index=="yes")

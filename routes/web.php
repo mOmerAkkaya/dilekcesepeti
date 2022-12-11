@@ -15,11 +15,19 @@ Route::get('/', [MainPageController::class, 'index'])->name('index');
 Route::resource('documents', DocumentController::class);
 Route::resource('contact', ContactController::class);
 
+Route::group(['prefix' => 'documents', 'as' => 'documents.'], function () {
+    Route::get('/', [DocumentController::class, 'all'])->name('index');
+    Route::get('/categories/{slug}', [DocumentController::class, 'categories'])->name('categories');
+
+});
+
+
+
 
 Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name("index");
+    Route::get('/', [UserHomeController::class, 'index'])->name("index");
 });
