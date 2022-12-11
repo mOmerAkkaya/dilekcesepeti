@@ -25,7 +25,6 @@ class AdminCheck
             return $next($request);
         }
 
-        return redirect()->back()->with('unauthorised', 'You are 
-                  unauthorised to access this page');
+        abort(401);
     }
 }
