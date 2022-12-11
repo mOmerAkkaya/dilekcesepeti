@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\Values;
+use App\Http\Controllers\UploadController;
 
 class PanelDocuments extends Controller
 {
@@ -44,6 +45,12 @@ class PanelDocuments extends Controller
     public function store(Request $request)
     {
         $slug   = $this->slugify($request->name);
+        if ($request->file('file')) {
+            $up         = new UploadController();
+            $template   = $up->upload($request->file('file'), 'Documents');
+        }else{
+            $template=null;
+        }
         $data = Document::create([
             'slug'          =>  $slug,
             'doc_type'      =>  $request->doc_type,
@@ -55,13 +62,13 @@ class PanelDocuments extends Controller
             'description'   =>  $request->description,
             'law'           =>  $request->law,
             'steps'         =>  $request->steps,
-            'template'      =>  $request->template,
+            'template'      =>  $template,
             'attachment'    =>  $request->attachment,
             'time'          =>  $request->time,
             'price'         =>  $request->price
         ]);
 
-        return $request->all();
+        return $data;
     }
 
     /**

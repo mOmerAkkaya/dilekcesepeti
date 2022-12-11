@@ -18,7 +18,7 @@ class DocumentController extends Controller
      */
     public function index(Request $request)
     {
-    $page = Page::where('slug', 'searchresult')->firstOrFail();
+        $page = Page::where('slug', 'searchresult')->firstOrFail();
         $query  =   $request["query"];
         $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->with('get_doc_type')->cursorPaginate(2);
         (count($data)==0)? $this->Improve($query):true;
@@ -108,15 +108,15 @@ class DocumentController extends Controller
     
     public static function petitionList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["petition"])->with('get_sub_cat')->select('sub_cat')->get()->groupBy("cat");
+        return Document::where("doc_type", "1")->get()->groupBy("sub_cat");
     }
     public static function contractList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->with('get_sub_cat')->select('sub_cat')->get()->groupBy("cat");
+        return Document::where("doc_type", "2")->get()->groupBy("sub_cat");
     }
 
 
-    public function Improve($query=null)
+    public function Improve($query = null)
     {
         return Improve::create(['query' => $query, 'ip' => request()->ip()]);
     }

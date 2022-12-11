@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="#">{{ __('menu.home') }}</a></li>
                     <li><a href="#">{{ __('footer.about') }}</a></li>
-                    <li><a href="{{route('documents.index', ['Evrak'])}}">{{ __('menu.petition') }}</a></li>
+                    <li><a href="{{route('document.index', ['Evrak'])}}">{{ __('menu.petition') }}</a></li>
                     <li><a href="#">{{ __('menu.contract') }}</a></li>
                     <li><a href="#">{{ __('menu.judicial') }}</a></li>
                 </ul>
@@ -31,7 +31,7 @@
                 <h4>{{ __('footer.lastdocuments') }}</h4>
                 <ul>
                     @foreach(\App\Models\Document::orderBy('id','desc')->take(5)->get() as $key => $value)
-                    <li><a href="{{route('documents.show', [$value->slug])}}">{{$value->name}}</a></li>
+                    <li><a href="{{route('dokuman.show', [$value->slug])}}">{{$value->name}}</a></li>
                     @endforeach
                 </ul>
             </div>

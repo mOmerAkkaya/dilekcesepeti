@@ -13,12 +13,12 @@ use App\Http\Controllers\PanelHome;
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
 
-Route::resource('documents', DocumentController::class);
-Route::resource('contact', ContactController::class);
+Route::resource('dokuman', DocumentController::class);
+Route::resource('iletisim', ContactController::class);
 
-Route::group(['prefix' => 'documents', 'as' => 'documents.'], function () {
-    Route::get('/', [DocumentController::class, 'all'])->name('index');
-    Route::get('/categories/{slug}', [DocumentController::class, 'categories'])->name('categories');
+Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
+    Route::get('/tumu', [DocumentController::class, 'all'])->name('index');
+    Route::get('/kategori/{slug}', [DocumentController::class, 'categories'])->name('categories');
 
 });
 
@@ -27,7 +27,7 @@ Route::group(['prefix' => 'documents', 'as' => 'documents.'], function () {
 
 Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
-    Route::resource('documents', PanelDocuments::class);
+    Route::resource('documentpanel', PanelDocuments::class);
 
 });
 

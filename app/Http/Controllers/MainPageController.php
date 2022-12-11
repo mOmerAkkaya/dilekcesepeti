@@ -13,7 +13,7 @@ class MainPageController extends Controller
     {
         $latestComments =   Comments::join('users', 'users.id', 'comments.user_id')->join('documents', 'documents.id', 'comments.document_id')->select('users.name as uname','documents.name as dname', 'comments.*')->orderBy('comments.id','desc')->limit(3)->get();
         $page           =   Page::where('slug', 'index')->firstOrFail();
-        $document       =   Document::with('get_doc_type')->orderBy('id','desc')->get();
+        $document       =   Document::with('get_doc_type','get_sub_cat')->orderBy('id','desc')->get();
         return view("welcome", compact('page','document', 'latestComments'));
     }
 }

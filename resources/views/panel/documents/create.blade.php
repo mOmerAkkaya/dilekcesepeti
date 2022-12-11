@@ -20,7 +20,8 @@
                             <h5 class=" card-title">Yeni Döküman</h5>
                         </a>
                         <p>
-                        <form action="{{route('panel.documents.store')}}" method="POST">
+                        <form action="{{route('panel.documents.store')}}" method="POST" enctype="multipart/form-data">
+
                             @csrf
                             <!-- Default Accordion -->
                             <div class="accordion" id="accordionExample">
@@ -38,7 +39,7 @@
                                                     <select class="form-select" name="doc_type" aria-label=" Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -57,10 +58,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Alt Döküman Türü</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="sub_doc_type" aria-label="Default select example">
+                                                    <select class="form-select" name="sub_doc_type" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -79,10 +80,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Sektör</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="type" aria-label="Default select example">
+                                                    <select class="form-select" name="type" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -101,10 +102,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Kategori</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="cat" aria-label="Default select example">
+                                                    <select class="form-select" name="cat" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -126,7 +127,7 @@
                                                     <select class="form-select" name="sub_cat" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -168,25 +169,25 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Hukuk</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="law" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Süre</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="time" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Ücret</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" name="price" class="form-control" required>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="inputNumber" class="col-sm-2 col-form-label">Şablon Dosyası</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" type="file" id="formFile">
+                                                    <input class="form-control" type="file" name="file" id="formFile">
                                                 </div>
                                             </div>
                                         </div>
