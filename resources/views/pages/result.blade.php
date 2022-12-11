@@ -37,7 +37,7 @@
                         <small>Süre 1 dk.</small>
                     </div>
                     <p class="mb-1">{{$value->description}}</p>
-                    <small>{{$value->cat}}</small>
+                    <small>{{$value->get_doc_type->value}}</small>
                 </a>
                 @endforeach
             </div>

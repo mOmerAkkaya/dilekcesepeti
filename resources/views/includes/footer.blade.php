@@ -31,7 +31,7 @@
                 <h4>{{ __('footer.lastdocuments') }}</h4>
                 <ul>
                     @foreach(\App\Models\Document::orderBy('id','desc')->take(5)->get() as $key => $value)
-                    <li><a href="#">{{$value->name}}</a></li>
+                    <li><a href="{{route('documents.show', [$value->slug])}}">{{$value->name}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-</footer><!-- End Footer -->
+</footer>
 <!-- End Footer -->
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

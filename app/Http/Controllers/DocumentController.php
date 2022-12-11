@@ -19,7 +19,7 @@ class DocumentController extends Controller
     {
         $page = Page::where('slug', 'index')->firstOrFail();
         $query  =   $request["query"];
-        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->cursorPaginate(2);
+        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->with('get_doc_type')->cursorPaginate(2);
         return view('pages.result', compact('data','query','page'));
     }
 
@@ -50,8 +50,10 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show(Document $document)
+    public function show($slug = null)
     {
+        $data   = Document::where('slug',$slug)->with('get_doc_type')->firstOrFail();
+        echo $data;
         return "DÖKÜMAN GÖSTER";
     }
 
@@ -91,10 +93,10 @@ class DocumentController extends Controller
 
     public static function petitionList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["petition"])->join('values', 'documents.cat','values.id')->get()->groupBy("cat");
+        return Document::where("doc_type", config::get('constants.doc_type')["petition"])->with('get_cat')->select('cat')->get()->groupBy("cat");
     }
     public static function contractList()
     {
-        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->join('values', 'documents.cat', 'values.id')->get()->groupBy("cat");
+        return Document::where("doc_type", config::get('constants.doc_type')["contract"])->with('get_cat')->select('cat')->get()->groupBy("cat");
     }
 }

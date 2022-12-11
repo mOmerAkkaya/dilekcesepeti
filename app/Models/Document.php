@@ -13,19 +13,12 @@ class Document extends Model
     use SoftDeletes;
     use HasFactory;
 
-    public function doc_type(){
+    public function get_doc_type(){
         return $this->hasOne('\App\Models\Values','id', 'doc_type');
     }
-    public function sub_doc_type()
+    public function get_cat()
     {
-        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
+        return $this->hasOne('\App\Models\Values', 'id', 'cat');
     }
-    public function sub_dotypec_type()
-    {
-        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
-    }
-    public function cat()
-    {
-        return $this->hasOne('\App\Models\Values', 'id', 'doc_type');
-    }
+   
 }
