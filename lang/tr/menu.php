@@ -10,8 +10,8 @@ return [
     'login'         => 'Giriş Yap',
     'judicial'      => 'Adli Evrak',
     'process'       => 'İşlem',
-    'result'        => 'Arama Sonuçları',
-    'resultfor'     => 'İçin Arama Sonuçları',
+    'result'        => 'Arama sonuçları',
+    'resultfor'     => 'için sonuçlar',
     'notfound'      => 'Sonuç Bulunamadı', 
     'total'         => 'Bulunan Döküman Sayısı : ', 
 ];

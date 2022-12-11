@@ -21,55 +21,65 @@
 </head>
 
 <body>
-<main class="d-flex w-100">
-    <div class="container d-flex flex-column">
-        <div class="row vh-100">
-            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-                <div class="d-table-cell align-middle">
+    <main class="d-flex w-100">
+        <div class="container d-flex flex-column">
+            <div class="row vh-100">
+                <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
 
-                    <div class="text-center mt-4">
-                        <h1 class="h2">Get started</h1>
-                        <p class="lead">
-                            Start creating the best possible user experience for you customers.
-                        </p>
-                    </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="m-sm-4">
+                                    <center><img style="width: 30%;" src="http://dilekcesepeti.test/img/dilekce.jpg" /></center>
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="m-sm-4">
-                                <form action="{{route('register')}}" method="post">
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label class="form-label">Name</label>
-                                        <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password_confirmation" placeholder="Enter password" />
-                                    </div>
-                                    <div class="text-center mt-3">
-                                        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
-                                    </div>
-                                </form>
+                                        <div class="mb-3">
+                                            <label class="form-label">Name</label>
+                                            <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Email</label>
+                                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Password</label>
+                                            <input class="form-control form-control-lg" type="password" name="password_confirmation" placeholder="Enter password" />
+                                        </div>
+                                        <div class="text-center mt-3">
+                                            <button type="submit" class="btn btn-lg btn-primary">Kaydol</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
 
-<script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 

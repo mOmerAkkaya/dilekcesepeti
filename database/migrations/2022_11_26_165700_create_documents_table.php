@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique()->comment('Document URL');
             $table->integer('doc_type')->comment('Document Type - 1: Dilekçe - 2: Sözleşme');
             $table->integer('sub_doc_type')->comment('Sub Document Type - 1: Bireysel - 2: Tüzel');
             $table->integer('type')->comment('Type - 1: Kamu - 2: Özel');

@@ -16,6 +16,10 @@ Route::resource('documents', DocumentController::class);
 Route::resource('contact', ContactController::class);
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name("index");
+});
+
+Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
 });

@@ -14,7 +14,7 @@
 
     <link rel="canonical" href="{{url()->full()}}" />
 
-    <title>Giriş Yap</title>
+    <title>Giriş | Dilekçe Sepeti | dilekcesepeti.com.tr</title>
 
     <link href="{{asset('admin/css/app.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -36,8 +36,8 @@
                                 <form action="{{route('login')}}" method="post">
                                     @csrf
                                     <div class="mb-3">
-                                        <label class="form-label">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                        <label class="form-label">E-Posta</label>
+                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="E-Posta Adresiniz" />
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -45,27 +45,25 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
+                                        <label class="form-label">Şifreniz</label>
+                                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Şifrenizi Giriniz" />
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                         <small>
-                                            <a href="index.html">Forgot password?</a>
+                                            <a href="index.html">Şifremi unuttum</a>
                                         </small>
                                     </div>
                                     <div>
                                         <label class="form-check">
                                             <input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
-                                            <span class="form-check-label">
-              Remember me next time
-            </span>
+                                            <span class="form-check-label">Beni hatırla</span>
                                         </label>
                                     </div>
                                     <div class="text-center mt-3">
-                                        <button type="submit" class="btn btn-lg btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-lg btn-primary">Giriş Yap</button>
                                     </div>
                                 </form>
                             </div>

@@ -10,7 +10,7 @@
                 <p data-aos="fade-up" data-aos-delay="100">{{ __('layouts/index.subtitle') }}</p>
 
                 <form method="get" action="{{route('documents.index')}}" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <input type="text" name="query" class="form-control" placeholder="{{ __('layouts/index.placeholder') }}">
+                    <input type="text" minlength="3" name="query" class="form-control" placeholder="{{ __('layouts/index.placeholder') }}" required>
                     <button type="submit" class="btn btn-primary">{{ __('layouts/index.search') }}</button>
                 </form>
 

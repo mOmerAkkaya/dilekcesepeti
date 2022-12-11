@@ -31,7 +31,7 @@
                 @if(count($data))
             <div class="list-group">
                 @foreach ($data as $key => $value)
-                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <a href="{{route('documents.show',[$value->slug])}}" class="list-group-item list-group-item-action" aria-current="true">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$value->name}}</h5>
                         <small>Süre 1 dk.</small>
