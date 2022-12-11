@@ -1,5 +1,6 @@
 @extends('layouts.admin')
-
+@section('title', 'Dökümanlar')
+@section('panel.index', '')
 @section('content')
 <main id="main" class="main">
 

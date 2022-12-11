@@ -235,7 +235,7 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link " href="{{route('panel.index')}}">
+      <a class="nav-link @yield('panel.index','collapsed')" href="{{route('panel.index')}}">
         <i class="bi bi-grid"></i>
         <span>{{ __('panel.dashboard') }}</span>
       </a>
@@ -414,7 +414,7 @@
     <li class="nav-heading">{{ __('panel.pages') }}</li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="{{route('panel.documents.index')}}">
+      <a class="nav-link @yield('panel.documents.index','collapsed')" href="{{route('panel.documents.index')}}">
         <i class="bi bi-file-earmark"></i>
         <span>{{ __('panel.documents') }}</span>
       </a>

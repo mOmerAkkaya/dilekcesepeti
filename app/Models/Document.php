@@ -20,6 +20,10 @@ class Document extends Model
     {
         return $this->hasOne('\App\Models\Values', 'id', 'sub_doc_type');
     }
+    public function get_type()
+    {
+        return $this->hasOne('\App\Models\Values', 'id', 'type');
+    }
     public function get_cat()
     {
         return $this->hasOne('\App\Models\Values', 'id', 'cat');
