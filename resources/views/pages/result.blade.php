@@ -32,7 +32,7 @@
                 @if(count($data))
             <div class="list-group">
                 @foreach ($data as $key => $value)
-                <a href="{{route('documents.show',[$value->slug])}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                <a href="{{route('dokuman.show',[$value->slug])}}" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{$value->name}}</h5>
                         <small class="text-muted">Süre {{$value->time}} dk.</small>

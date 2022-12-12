@@ -21,8 +21,14 @@
                         <a href="{{route('panel.documentpanel.create')}}">
                             <h5 class=" card-title">Yeni Döküman</h5>
                         </a>
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                            {{ $message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                         <p>
-                        <table data-order='[[ 1, "asc" ]]' id="table_id" class="display">
+                        <table data-order='[[ 0, "desc" ]]' id="table_id" class="display">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -64,8 +70,22 @@
 @section('js')
 <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#table_id').DataTable();
+    $('#table_id').dataTable({
+        "columns": [null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            {
+                "width": "25%"
+            },
+            {
+                "width": "25%"
+            },
+            null,
+
+        ]
     });
 </script>
 @endsection

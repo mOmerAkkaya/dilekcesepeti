@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('type')->comment('Form Type');
             $table->string('name')->nullable();
+            $table->integer('secretCaptcha')->nullable();
+            $table->integer('captcha')->nullable();
             $table->string('email');
             $table->string('gsm')->nullable();
             $table->string('message')->nullable();

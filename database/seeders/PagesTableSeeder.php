@@ -34,6 +34,12 @@ class PagesTableSeeder extends Seeder
                 "description"   => 'Tüm Dökümanlar',
                 "no_index"      => 'no',
             ],
+            [
+                "slug"          => 'iletisim',
+                "title"         => 'İletişim',
+                "description"   => 'İletişim',
+                "no_index"      => 'no',
+            ],
         ]);
     }
 }

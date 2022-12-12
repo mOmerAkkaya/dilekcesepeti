@@ -9,10 +9,6 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['create', 'store']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +16,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-       return "ÖMER";
-
+       return "ÖMERasdasdsd";
     }
 
     /**
@@ -31,9 +26,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $page = Page::where('slug', 'contact')->firstOrFail();
+        $page = Page::where('slug', 'iletisim')->firstOrFail();
         return view("pages.contact", compact('page'));
-
     }
 
     /**

@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('name')->comment('Document Name');
             $table->longText('description')->comment('Document Description');
             $table->longText('law')->nullable()->comment('Document Law Number');
-            $table->integer('steps')->nullable()->comment('Document Steps');
-            $table->integer('template')->nullable()->comment('Document Template');
+            $table->longText('steps')->nullable()->comment('Document Steps');
+            $table->longText('template')->nullable()->comment('Document Template');
             $table->integer('attachment')->nullable()->comment('Ready Document Template');
             $table->integer('time')->nullable()->comment('Document Filling Time');
             $table->decimal('price',10, 2)->comment('Document Price');

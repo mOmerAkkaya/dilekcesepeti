@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\Values;
 use App\Http\Controllers\UploadController;
+use Throwable;
 
 class PanelDocuments extends Controller
 {
@@ -33,7 +34,6 @@ class PanelDocuments extends Controller
         $cat            =   Values::where('type', 'cat')->get();
         $sub_cat        =   Values::where('type', 'sub_cat')->get();
         return view("panel.documents.create", compact('doc_type','sub_doc_type','type', 'cat','sub_cat'));
-
     }
 
     /**
@@ -44,13 +44,18 @@ class PanelDocuments extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        try {      
+        $stepsSub = array();
+        foreach ($request->StepType as $key => $value) {
+            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "label" => $request->StepLabel[$key], "name" => strtolower($request->StepName[$key]), "description" => $request->StepDescription[$key]]);
+        }
+        $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
         $slug   = $this->slugify($request->name);
         if ($request->file('file')) {
-            $up         = new UploadController();
-            $template   = $up->upload($request->file('file'), 'Documents');
+            $up             =   new UploadController();
+            $attachment     =   $up->upload($request->file('file'), 'Documents');
         }else{
-            $template=null;
+            $attachment     =   null;
         }
         $data = Document::create([
             'slug'          =>  $slug,
@@ -62,14 +67,18 @@ class PanelDocuments extends Controller
             'name'          =>  $request->name,
             'description'   =>  $request->description,
             'law'           =>  $request->law,
-            'steps'         =>  $request->steps,
-            'template'      =>  $template,
-            'attachment'    =>  $request->attachment,
+            'steps'         =>  $stepsSub,
+            'template'      =>  null,
+            'attachment'    =>  $attachment,
             'time'          =>  $request->time,
             'price'         =>  $request->price
         ]);
+        } catch (Throwable $e) {
+            report($e);
+            return false;
+        }
 
-        return $data;
+        return redirect()->route('panel.documentpanel.index')->with('success','İşlem Başarılı');
     }
 
     /**
@@ -80,7 +89,14 @@ class PanelDocuments extends Controller
      */
     public function show($id)
     {
-       return $id;
+        $doc_type       =   Values::where('type', 'doc_type')->get();
+        $sub_doc_type   =   Values::where('type', 'sub_doc_type')->get();
+        $type           =   Values::where('type', 'type')->get();
+        $cat            =   Values::where('type', 'cat')->get();
+        $sub_cat        =   Values::where('type', 'sub_cat')->get();
+        $data           =   Document::find($id);
+        return view("panel.documents.edit", compact('doc_type', 'sub_doc_type', 'type', 'cat', 'sub_cat', 'data'));
+
     }
 
     /**
@@ -91,7 +107,7 @@ class PanelDocuments extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -103,7 +119,28 @@ class PanelDocuments extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $document = Document::find($id);
+        $stepsSub = array();
+        foreach ($request->StepType as $key => $value) {
+            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "label" => $request->StepLabel[$key], "name" => strtolower($request->StepName[$key]), "description" => $request->StepDescription[$key]]);
+        }
+        $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
+
+        $document->doc_type      =  $request->doc_type;
+        $document->sub_doc_type  =  $request->sub_doc_type;
+        $document->type          =  $request->type;
+        $document->cat           =  $request->cat;
+        $document->sub_cat       =  $request->sub_cat;
+        $document->name          =  $request->name;
+        $document->description   =  $request->description;
+        $document->law           =  $request->law;
+        $document->steps         =  $stepsSub;
+        $document->template      =  $request->template;
+        $document->time          =  $request->time;
+        $document->price         =  $request->price;
+        $document->save();
+        return redirect()->route('panel.documentpanel.index')->with('success', 'İşlem Başarılı');
+
     }
 
     /**

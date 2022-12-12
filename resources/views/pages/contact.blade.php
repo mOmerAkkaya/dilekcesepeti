@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="col-lg-8">
-                    <form action="{{route('contact.store')}}" method="post" class="php-email-form">
+                    <form action="{{route('iletisim.store')}}" method="post" class="php-email-form">
                         @csrf
                         <input type="hidden" name="type" value="PageContactForm" />
                         <input type="hidden" name="user_id" value="{{@Auth::user()->id}}" />

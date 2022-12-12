@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Dökümanlar')
+@section('title', 'Döküman Güncelleme')
 @section('panel.documents.index', '')
 @section('css')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -17,12 +17,12 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('panel.documentpanel.create')}}">
-                            <h5 class=" card-title">Yeni Döküman</h5>
+                        <a href="{{route('dokuman.show', $data->slug)}}">
+                            <h5 class=" card-title">Dökümanı Görüntüle</h5>
                         </a>
                         <p>
-                        <form action="{{route('panel.documentpanel.store')}}" method="POST" enctype="multipart/form-data">
-
+                        <form action="{{route('panel.documentpanel.update', [$data->id])}}" method="POST" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <!-- Default Accordion -->
                             <div class="accordion" id="accordionExample">
@@ -37,10 +37,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Döküman Türü</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="doc_type" aria-label=" Default select example" required>
+                                                    <select class="form-select" name="doc_type" aria-label=" Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option @if ($value->id==$data->doc_type) selected @endif value="{{$value->id}}">{{$value->value}} </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -59,10 +59,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Alt Döküman Türü</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="sub_doc_type" aria-label="Default select example" required>
+                                                    <select class="form-select" name="sub_doc_type" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option @if ($value->id==$data->sub_doc_type) selected @endif value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -81,10 +81,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Sektör</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="type" aria-label="Default select example" required>
+                                                    <select class="form-select" name="type" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option @if ($value->id==$data->type) selected @endif value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -103,10 +103,10 @@
                                             <div class="row mb-3">
                                                 <label class="col-sm-2 col-form-label">Kategori</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select" name="cat" aria-label="Default select example" required>
+                                                    <select class="form-select" name="cat" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option @if ($value->id==$data->cat) selected @endif value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -128,7 +128,7 @@
                                                     <select class="form-select" name="sub_cat" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}}</option>
+                                                        <option @if ($value->id==$data->sub_cat) selected @endif value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -145,15 +145,15 @@
                                     <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-2 col-form-label">Adı</label>
+                                                <label for="name" class="col-sm-2 col-form-label">Adı</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="name" class="form-control" required>
+                                                    <input type="text" value="{{$data->name}}" name="name" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="inputPassword" class="col-sm-2 col-form-label">Açıklaması</label>
+                                                <label for="description" class="col-sm-2 col-form-label">Açıklaması</label>
                                                 <div class="col-sm-10">
-                                                    <textarea class="form-control" name="description" style="height: 100px" required></textarea>
+                                                    <textarea class="form-control" value="{{$data->description}}" name="description" style="height: 100px"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,9 +168,9 @@
                                     <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-2 col-form-label">Hukuk</label>
+                                                <label for="law" class="col-sm-2 col-form-label">Hukuk</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="law" class="form-control">
+                                                    <input type="text" name="law" value="{{$data->law}}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -178,7 +178,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">dk.</span>
-                                                        <input required type="text" class="form-control" name="time" placeholder="15" aria-label="time" aria-describedby="basic-addon1">
+                                                        <input type="text" class="form-control" name="time" value="{{$data->time}}" placeholder="15" aria-label="time" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +187,7 @@
                                                 <div class="col-sm-10">
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text" id="basic-addon1">₺</span>
-                                                        <input required type="text" class="form-control" name="price" placeholder="150" aria-label="price" aria-describedby="basic-addon1">
+                                                        <input type="text" class="form-control" name="price" value="{{$data->price}}" placeholder="150" aria-label="price" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,10 +222,10 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr id="Steps">
-                                                                <td><input placeholder="text, date vs." required type="text" name="StepType[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken adı" required type="text" name="StepName[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken etiketi" required type="text" name="StepLabel[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken açıklaması" required type="text" name="StepDescription[]" class="form-control"></td>
+                                                                <td><input placeholder="text, date vs." type="text" name="StepType[]" class="form-control"></td>
+                                                                <td><input placeholder="değişken adı" type="text" name="StepName[]" class="form-control"></td>
+                                                                <td><input placeholder="değişken etiketi" type="text" name="StepLabel[]" class="form-control"></td>
+                                                                <td><input placeholder="değişken açıklaması" type="text" name="StepDescription[]" class="form-control"></td>
                                                                 <td><input type="button" id="newrow" class="btn btn-success btn-sm" value="+"><input type="button" onclick="deleted()" class="btn btn-danger btn-sm" value="x"></td>
                                                             </tr>
                                                 </div>
@@ -236,10 +236,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingNine">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                        Template
+                                    </button>
+                                </h2>
+                                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="row mb-3">
+                                            <textarea name="template">{{$data->template}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div><!-- End Default Accordion Example -->
                 <p></p>
-                <p><button type="submit" class="btn btn-primary">Ekle</button></p>
+                <p><button type="submit" class="btn btn-primary">Güncelle</button></p>
                 </form>
                 </p>
             </div>
@@ -259,6 +273,24 @@
     }
     $("#newrow").click(function() {
         $('#steps').append('<tr><td><input type="text" name="StepType[]" class="form-control"></td><td><input type="text" name="StepLabel[]" class="form-control"></td><td><input type="text" name="StepName[]" class="form-control"></td><td><input type="text" name="StepDescription[]" class="form-control"></td><td><input type="button" onclick="deleted(this)" class="btn btn-danger btn-sm" value="x"></td></tr>');
+    });
+</script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [{
+                value: 'First.Name',
+                title: 'First Name'
+            },
+            {
+                value: 'Email',
+                title: 'Email'
+            },
+        ]
     });
 </script>
 @endsection

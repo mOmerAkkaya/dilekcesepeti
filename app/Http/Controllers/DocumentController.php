@@ -63,9 +63,10 @@ class DocumentController extends Controller
      */
     public function show($slug = null)
     {
+        $omer ="DEMEÖE";
         $data   = Document::where('slug',$slug)->with('get_doc_type')->firstOrFail();
-        echo $data;
-        return "DÖKÜMAN GÖSTER";
+        $steps = (json_decode($data->steps, JSON_FORCE_OBJECT));
+        return $data->template;
     }
 
     /**
