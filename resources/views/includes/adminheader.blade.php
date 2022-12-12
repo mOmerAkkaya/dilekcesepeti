@@ -117,7 +117,7 @@
 
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-1.jpg" alt="" class="rounded-circle">
+              <img src="{{ asset('assets/img/messages-1.jpg')}}" alt="" class="rounded-circle">
               <div>
                 <h4>Maria Hudson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -131,7 +131,7 @@
 
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-2.jpg" alt="" class="rounded-circle">
+              <img src="{{ asset('assets/img/messages-2.jpg')}}" alt="" class="rounded-circle">
               <div>
                 <h4>Anna Nelson</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -145,7 +145,7 @@
 
           <li class="message-item">
             <a href="#">
-              <img src="assets/img/messages-3.jpg" alt="" class="rounded-circle">
+              <img src="{{ asset('assets/img/messages-3.jpg')}}" alt="" class="rounded-circle">
               <div>
                 <h4>David Muldon</h4>
                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -168,63 +168,63 @@
       <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
-        </a><!-- End Profile Iamge Icon -->
+          <img src="{{asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle">
+              <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
+            </a><!-- End Profile Iamge Icon -->
 
-        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-            <h6>Kevin Anderson</h6>
-            <span>Web Designer</span>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+              <li class="dropdown-header">
+                <h6>Kevin Anderson</h6>
+                <span>Web Designer</span>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
 
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-person"></i>
-              <span>My Profile</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <i class="bi bi-person"></i>
+                  <span>My Profile</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
 
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-              <i class="bi bi-gear"></i>
-              <span>Account Settings</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <i class="bi bi-gear"></i>
+                  <span>Account Settings</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
 
-          <li>
-            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-              <i class="bi bi-question-circle"></i>
-              <span>Need Help?</span>
-            </a>
-          </li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+                  <i class="bi bi-question-circle"></i>
+                  <span>Need Help?</span>
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
 
-          <li>
-            <form action="{{ route('logout') }}" method="POST">
-              @csrf
-              <button class="dropdown-item d-flex align-items-center" href="{{route('logout')}}">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>{{ __('Çıkış Yap') }}</span>
-              </button>
-            </form>
-          </li>
+              <li>
+                <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button class="dropdown-item d-flex align-items-center" href="{{route('logout')}}">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>{{ __('Çıkış Yap') }}</span>
+                  </button>
+                </form>
+              </li>
 
-        </ul><!-- End Profile Dropdown Items -->
-      </li><!-- End Profile Nav -->
+            </ul><!-- End Profile Dropdown Items -->
+          </li><!-- End Profile Nav -->
 
-    </ul>
+        </ul>
   </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
@@ -414,7 +414,7 @@
     <li class="nav-heading">{{ __('panel.pages') }}</li>
 
     <li class="nav-item">
-      <a class="nav-link @yield('panel.documents.index','collapsed')" href="{{route('panel.documents.index')}}">
+      <a class="nav-link @yield('panel.documents.index','collapsed')" href="{{route('panel.documentpanel.index')}}">
         <i class="bi bi-file-earmark"></i>
         <span>{{ __('panel.documents') }}</span>
       </a>

@@ -18,11 +18,11 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('panel.documents.create')}}">
+                        <a href="{{route('panel.documentpanel.create')}}">
                             <h5 class=" card-title">Yeni Döküman</h5>
                         </a>
                         <p>
-                        <table data-order='[[ 1, "asc" ]]'  id="table_id" class="display">
+                        <table data-order='[[ 1, "asc" ]]' id="table_id" class="display">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -39,7 +39,7 @@
                             <tbody>
                                 @foreach ($data as $key => $value)
                                 <tr>
-                                    <th><a href="{{route('panel.documents.show',[$value->id])}}">{{$value->id}}</a></th>
+                                    <th><a href="{{route('panel.documentpanel.show',[$value->id])}}">{{$value->id}}</a></th>
                                     <td>{{$value->get_doc_type->value}}</td>
                                     <td>{{$value->get_sub_doc_type->value}}</td>
                                     <td>{{$value->get_type->value}}</td>

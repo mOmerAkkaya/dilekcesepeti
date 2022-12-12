@@ -44,6 +44,7 @@ class PanelDocuments extends Controller
      */
     public function store(Request $request)
     {
+        return $request->all();
         $slug   = $this->slugify($request->name);
         if ($request->file('file')) {
             $up         = new UploadController();

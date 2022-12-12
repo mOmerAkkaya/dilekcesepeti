@@ -2,6 +2,7 @@
 @section('title', 'Dökümanlar')
 @section('panel.documents.index', '')
 @section('css')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 @endsection
 @section('content')
 <main id="main" class="main">
@@ -16,11 +17,11 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('panel.documents.create')}}">
+                        <a href="{{route('panel.documentpanel.create')}}">
                             <h5 class=" card-title">Yeni Döküman</h5>
                         </a>
                         <p>
-                        <form action="{{route('panel.documents.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('panel.documentpanel.store')}}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             <!-- Default Accordion -->
@@ -39,7 +40,7 @@
                                                     <select class="form-select" name="doc_type" aria-label=" Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -61,7 +62,7 @@
                                                     <select class="form-select" name="sub_doc_type" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_doc_type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -83,7 +84,7 @@
                                                     <select class="form-select" name="type" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($type as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -105,7 +106,7 @@
                                                     <select class="form-select" name="cat" aria-label="Default select example" required>
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -127,7 +128,7 @@
                                                     <select class="form-select" name="sub_cat" aria-label="Default select example">
                                                         <option value="" disabled selected>Lütfen Seçiniz</option>
                                                         @foreach($sub_cat as $key => $value)
-                                                        <option value="{{$value->id}}">{{$value->value}} {{$value->id}}</option>
+                                                        <option value="{{$value->id}}">{{$value->value}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -193,25 +194,65 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- End Default Accordion Example -->
-                            <p></p>
-                            <p><button type="submit" class="btn btn-primary">Ekle</button></p>
-                        </form>
-                        </p>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingEight">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                            Steps
+                                        </button>
+                                    </h2>
+                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <table id="steps" class="ui celled table" style="width:100%">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Type</th>
+                                                                <th>Name</th>
+                                                                <th>Label</th>
+                                                                <th>Description</th>
+                                                                <th>Edit</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr id="Steps">
+                                                                <td><input type="text" name="StepType[]" class="form-control"></td>
+                                                                <td><input type="text" name="StepName[]" class="form-control"></td>
+                                                                <td><input type="text" name="StepLabel[]" class="form-control"></td>
+                                                                <td><input type="text" name="StepDescription[]" class="form-control"></td>
+                                                                <td><input type="button" id="newrow" class="btn btn-success btn-sm" value="+"><input type="button" onclick="deleted()" class="btn btn-danger btn-sm" value="x"></td>
+                                                            </tr>
+                                                </div>
+                                            </div>
+                                            </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                </div>
-
+                </div><!-- End Default Accordion Example -->
+                <p></p>
+                <p><button type="submit" class="btn btn-primary">Ekle</button></p>
+                </form>
+                </p>
             </div>
+        </div>
+
+        </div>
         </div>
     </section>
 
 </main><!-- End #main -->
 @endsection
 @section('js')
-<script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#table_id').DataTable();
+    function deleted(area) {
+        var el = document.getElementById(area);
+        el.parentNode.removeChild(el);
+    }
+    $("#newrow").click(function() {
+        $('#steps').append('<tr><td><input type="text" name="StepType[]" class="form-control"></td><td><input type="text" name="StepLabel[]" class="form-control"></td><td><input type="text" name="StepName[]" class="form-control"></td><td><input type="text" name="StepDescription[]" class="form-control"></td><td><input type="button" onclick="deleted(this)" class="btn btn-danger btn-sm" value="x"></td></tr>');
     });
 </script>
 @endsection
