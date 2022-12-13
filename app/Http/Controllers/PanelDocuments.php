@@ -47,7 +47,7 @@ class PanelDocuments extends Controller
         try {      
         $stepsSub = array();
         foreach ($request->StepType as $key => $value) {
-            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "label" => $request->StepLabel[$key], "name" => strtolower($request->StepName[$key]), "description" => $request->StepDescription[$key]]);
+            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "name" => strtolower($request->StepName[$key]),"label" => $request->StepLabel[$key], "description" => $request->StepDescription[$key]]);
         }
         $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
         $slug   = $this->slugify($request->name);
@@ -122,7 +122,7 @@ class PanelDocuments extends Controller
         $document = Document::find($id);
         $stepsSub = array();
         foreach ($request->StepType as $key => $value) {
-            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "label" => $request->StepLabel[$key], "name" => strtolower($request->StepName[$key]), "description" => $request->StepDescription[$key]]);
+            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "name" => strtolower($request->StepName[$key]), "label" => $request->StepLabel[$key], "description" => $request->StepDescription[$key]]);
         }
         $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
 

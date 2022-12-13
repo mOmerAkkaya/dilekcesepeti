@@ -13,5 +13,6 @@ return [
     'result'        => 'Arama sonuçları',
     'resultfor'     => 'için sonuçlar',
     'notfound'      => 'Sonuç Bulunamadı', 
-    'total'         => 'Bulunan Döküman Sayısı : ', 
+    'total'         => 'Bulunan Döküman Sayısı : ',
+    'create'        => 'Döküman Oluşturma', 
 ];

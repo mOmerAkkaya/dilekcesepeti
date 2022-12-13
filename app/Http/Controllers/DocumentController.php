@@ -61,12 +61,11 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show($slug = null)
+    public function show($slug = null, Request $request)
     {
-        $omer ="DEMEÖE";
-        $data   = Document::where('slug',$slug)->with('get_doc_type')->firstOrFail();
-        $steps = (json_decode($data->steps, JSON_FORCE_OBJECT));
-        return $data->template;
+        $page   =   Page::where('slug', 'show')->firstOrFail();
+        $data   =   Document::where('slug', $slug)->with('get_doc_type')->firstOrFail();
+        return view('pages.show', compact('data','page'));
     }
 
     /**
@@ -77,6 +76,8 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
+
+        
         return "DÖKÜMAN DÜZENLEME";
     }
 
@@ -87,9 +88,17 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Document $document)
+    public function update(Request $request)
     {
-        return "DÖKÜMAN GÜNCELLEME OK";
+        $page   =   Page::where('slug', 'show')->firstOrFail();
+        $data   = Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
+        $steps  = json_decode($data->steps, true);
+        foreach ($steps as $key => $value){   
+        $new    = $_POST[$value["name"]];
+        $data->template =  str_replace($value["name"], $new, $data->template);
+        }
+        return view('pages.finish', compact('data', 'page'));
+
     }
 
     /**
