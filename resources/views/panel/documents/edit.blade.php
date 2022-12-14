@@ -5,6 +5,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 @endsection
 @section('content')
+@php
+$jsonDecode = json_decode($data->steps);
+@endphp
 <main id="main" class="main">
 
     <div class="pagetitle">
@@ -221,13 +224,15 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr id="Steps">
-                                                                <td><input placeholder="text, date vs." type="text" name="StepType[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken adı" type="text" name="StepName[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken etiketi" type="text" name="StepLabel[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken açıklaması" type="text" name="StepDescription[]" class="form-control"></td>
+                                                            @foreach($jsonDecode as $Step=>$value)
+                                                            <tr id="Steps{{$Step}}">
+                                                                <td><input type="text" name="StepType[]" class="form-control" value="{{$value->type}}" required aria-label="{{$value->type}}"></td>
+                                                                <td><input type="text" name="StepName[]" class="form-control" value="{{$value->name}}" required aria-label="{{$value->name}}"></td>
+                                                                <td><input type="text" name="StepLabel[]" class="form-control" value="{{$value->label}}" required aria-label="{{$value->label}}"></td>
+                                                                <td><input type="text" name="StepDescription[]" class="form-control" value="{{$value->description}}" required aria-label="{{$value->description}}"></td>
                                                                 <td><input type="button" id="newrow" class="btn btn-success btn-sm" value="+"><input type="button" onclick="deleted()" class="btn btn-danger btn-sm" value="x"></td>
                                                             </tr>
+                                                            @endforeach
                                                 </div>
                                             </div>
                                             </tbody>
