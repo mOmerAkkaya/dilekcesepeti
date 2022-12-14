@@ -3,10 +3,6 @@
 @section('panel.index', '')
 @section('css')
 <style>
-    body {
-        background: rgb(204, 204, 204);
-    }
-
     page {
         background: white;
         display: block;
@@ -28,6 +24,44 @@
             margin: 0;
             box-shadow: 0;
         }
+    }
+
+    .watermark {
+        /* Used to position the watermark */
+        position: relative;
+        filter: blur(1px);
+    }
+
+    .watermark__inner {
+        /* Center the content */
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        /* Absolute position */
+        left: 0px;
+        position: absolute;
+        top: 0px;
+
+        /* Take full size */
+        height: 100%;
+        width: 100%;
+    }
+
+    .watermark__body {
+        /* Text color */
+        color: rgba(0, 0, 0, 0.2);
+
+        /* Text styles */
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        /* Rotate the text */
+        transform: rotate(-45deg);
+
+        /* Disable the selection */
+        user-select: none;
     }
 </style>
 @endsection
@@ -56,7 +90,18 @@
 
 <section class="sample-page">
     <div class="container" data-aos="fade-up">
-        <page size="A4">{!! $data->template !!}</page>
+        <div class="watermark">
+            <!-- Watermark container -->
+            <div class="watermark__inner">
+                <!-- The watermark -->
+                <div class="watermark__body">
+                    <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
+                </div>
+            </div>
+            <page size="A4">{!! $data->template !!}</page>
+        </div>
+    </div>
+
     </div>
 </section>
 
