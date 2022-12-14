@@ -2,6 +2,7 @@
 @section('title', 'Döküman Oluşturma - '. $data->name)
 @section('panel.index', '')
 @section('css')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <style>
     page {
         background: white;
@@ -64,6 +65,11 @@
         user-select: none;
     }
 </style>
+<script>
+    $(document).ready(function() {
+        jQuery('.blurry-text').css('color', 'transparent').css('text-shadow', '0 0 10px rgba(0,0,0,0.5)').text();
+    });
+</script>
 @endsection
 @section('content')
 <!-- ======= Breadcrumbs ======= -->
@@ -87,24 +93,48 @@
         </div>
     </nav>
 </div><!-- End Breadcrumbs -->
-
-<section class="sample-page">
+<!-- ======= Service Details Section ======= -->
+<section id="service-details" class="service-details">
     <div class="container" data-aos="fade-up">
-        <div class="watermark">
-            <!-- Watermark container -->
-            <div class="watermark__inner">
-                <!-- The watermark -->
-                <div class="watermark__body">
-                    <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-4">
+                <div class="services-list">
+                    <a href="#">Sepete Ekle</a>
+                    <a href="#">Düzenle</a>
                 </div>
+
+                <h4>Döküman Hakkında Bilgi</h4>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>Yorum {!!$data->time!!} dk.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı {!!$data->time!!} dk.</span></li>
+                    <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
+                </ul>
+                <p></p>
             </div>
-            <page size="A4">{!! $data->template !!}</page>
+
+            <div class="col-lg-8">
+                <div class="services-list">
+                    <div class="watermark">
+                        <!-- Watermark container -->
+                        <div class="watermark__inner">
+                            <!-- The watermark -->
+                            <div class="watermark__body">
+                                <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
+                            </div>
+                        </div>
+                        <page size="A4">{!! $data->template !!}</page>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-    </div>
 
     </div>
-</section>
-
+</section><!-- End Service Details Section -->
 </main><!-- End #main -->
 
 @endsection

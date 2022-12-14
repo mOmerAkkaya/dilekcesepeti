@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainPageController;
@@ -15,6 +15,8 @@ Route::get('/', [MainPageController::class, 'index'])->name('index');
 
 Route::resource('dokuman', DocumentController::class);
 Route::resource('iletisim', ContactController::class);
+Route::resource('sepet', BasketController::class);
+
 
 Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
     Route::get('/tumu', [DocumentController::class, 'all'])->name('index');
