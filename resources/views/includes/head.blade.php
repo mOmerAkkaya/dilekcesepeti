@@ -7,7 +7,7 @@
 @if ($page->no_index=="yes")
 <meta name="robots" content="noindex">
 @endif
-
+@yield("css")
 <link href="{{asset('img/favicon.ico')}}" rel="icon">
 <link rel="canonical" href="{{url()->full()}}" />
 
@@ -22,4 +22,3 @@
 <link href="{{asset('vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
-@yield("css")

@@ -6,7 +6,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" style="background-image: url('assets/img/page-header.jpg');">
+        <div class="page-header d-flex align-items-center" style="background-image: url('../img/page-header.jpg');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -34,10 +34,10 @@
                 @foreach ($data as $key => $value)
                 <a href="{{route('dokuman.show',[$value->slug])}}" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{$value->name}}</h5>
+                        <h5 class="mb-1">{!! $value->name !!}</h5>
                         <small class="text-muted">Süre {{$value->time}} dk.</small>
                     </div>
-                    <p class="mb-1">{{$value->description}}</p>
+                    <p class="mb-1">{{strip_tags($value->description) }}</p>
                     <small class="text-muted">{{$value->get_doc_type->value}} - {{$value->get_sub_doc_type->value}} - {{$value->get_cat->value}} - {{$value->get_sub_cat->value}}</small>
                     <small class="text-muted" style="float: right;">Evrak Ücreti {{$value->price}} ₺</small>
                 </a>
