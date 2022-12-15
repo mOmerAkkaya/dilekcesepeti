@@ -35,9 +35,21 @@ class PagesTableSeeder extends Seeder
                 "no_index"      => 'no',
             ],
             [
-                "slug"          => 'iletisim',
+                "slug"          => 'contact',
                 "title"         => 'İletişim',
                 "description"   => 'İletişim',
+                "no_index"      => 'no',
+            ],
+            [
+                "slug"          => 'categories',
+                "title"         => 'Kategoriler',
+                "description"   => 'Kategoriler',
+                "no_index"      => 'no',
+            ],
+            [
+                "slug"          => 'show',
+                "title"         => 'Dökünanı Göster',
+                "description"   => 'Dökünanı Göster',
                 "no_index"      => 'no',
             ],
         ]);

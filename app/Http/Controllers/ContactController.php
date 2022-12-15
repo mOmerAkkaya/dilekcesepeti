@@ -26,7 +26,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        $page = Page::where('slug', 'iletisim')->firstOrFail();
+        $page = Page::where('slug', 'contact')->firstOrFail();
         return view("pages.contact", compact('page'));
     }
 
