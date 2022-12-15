@@ -13,6 +13,8 @@
     });
 </script>
 @endif
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 @endsection
 @section('content')
 
@@ -44,45 +46,52 @@
     <section id="service-details" class="service-details">
         <div class="container" data-aos="fade-up">
 
-            <div class="row gy-4">
 
-                <div class="col-lg-4">
-                    <div class="services-list">
-                        @foreach(json_decode($data->steps) as $key => $value)
-                        <a href="#" class="active">{{$value->label}}</a>
-                        @endforeach
-                    </div>
-
-                    <h4>Döküman Hakkında Bilgi</h4>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>Yorum {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
-                    </ul>
-                    <p></p>
-                </div>
-
-                <div class="col-lg-8">
-                    <div class="services-list">
-                        <p>
-                        <form action="{{route('dokuman.update',[$data->slug])}}" method="post">
-                            @csrf
-                            <input type="hidden" name="slug" value="{{$data->slug}}" />
-                            @method('put')
+            <div class="col">
+                <div class="services-list">
+                    <!-- SmartWizard html -->
+                    <div id="smartwizard">
+                        <ul class="nav">
                             @foreach(json_decode($data->steps) as $key => $value)
-                            <label for="{{$value->name}}">{{$value->label}}:</label>
-                            <input type="text" id="{{$value->name}}" name="{{$value->name}}"><br><br>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#step-{{$key+1}}">
+                                    <div class="num">{{$key+1}}</div>
+                                </a>
+                            </li>
                             @endforeach
-                            <button type="submit" id="submit" name="submit">submit</button>
+                        </ul>
 
-                        </form>
-                        </p>
+                        <div class="tab-content">
+                            @foreach(json_decode($data->steps) as $key => $value)
+                            <div id="step-{{$key+1}}" class="tab-pane" role="tabpanel" aria-labelledby="step-{{$key+1}}">
+                                {{$value->description}}
+                                <hr>
+                                <div class="input-group input-group-lg">
+                                    <span class="input-group-text" id="inputGroup-sizing-lg">{{$value->label}}</span>
+                                    <input required type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+
+                        <!-- Include optional progressbar HTML -->
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
+
+
+                    <form action="{{route('dokuman.update',[$data->slug])}}" method="post">
+                        @csrf
+                        <input type="hidden" name="slug" value="{{$data->slug}}" />
+                        @method('put')
+
+                    </form>
 
                 </div>
 
             </div>
+
 
         </div>
     </section><!-- End Service Details Section -->
@@ -127,5 +136,52 @@
 @endsection
 
 @section('js')
-
+<script>
+    $('#smartwizard').smartWizard({
+        selected: 0, // Initial selected step, 0 = first step
+        theme: 'default', // theme for the wizard, related css need to include for other than default theme
+        justified: true, // Nav menu justification. true/false
+        autoAdjustHeight: true, // Automatically adjust content height
+        backButtonSupport: true, // Enable the back button support
+        enableUrlHash: true, // Enable selection of the step based on url hash
+        transition: {
+            animation: 'none', // Animation effect on navigation, none|fade|slideHorizontal|slideVertical|slideSwing|css(Animation CSS class also need to specify)
+            speed: '400', // Animation speed. Not used if animation is 'css'
+            easing: '', // Animation easing. Not supported without a jQuery easing plugin. Not used if animation is 'css'
+            prefixCss: '', // Only used if animation is 'css'. Animation CSS prefix
+            fwdShowCss: '', // Only used if animation is 'css'. Step show Animation CSS on forward direction
+            fwdHideCss: '', // Only used if animation is 'css'. Step hide Animation CSS on forward direction
+            bckShowCss: '', // Only used if animation is 'css'. Step show Animation CSS on backward direction
+            bckHideCss: '', // Only used if animation is 'css'. Step hide Animation CSS on backward direction
+        },
+        toolbar: {
+            position: 'bottom', // none|top|bottom|both
+            showNextButton: true, // show/hide a Next button
+            showPreviousButton: true, // show/hide a Previous button
+            extraHtml: '' // Extra html to show on toolbar
+        },
+        anchor: {
+            enableNavigation: true, // Enable/Disable anchor navigation 
+            enableNavigationAlways: false, // Activates all anchors clickable always
+            enableDoneState: true, // Add done state on visited steps
+            markPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+            unDoneOnBackNavigation: false, // While navigate back, done state will be cleared
+            enableDoneStateNavigation: true // Enable/Disable the done state navigation
+        },
+        keyboard: {
+            keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+            keyLeft: [37], // Left key code
+            keyRight: [39] // Right key code
+        },
+        lang: { // Language variables for button
+            next: 'İleri',
+            previous: 'Geri'
+        },
+        disabledSteps: [], // Array Steps disabled
+        errorSteps: [], // Array Steps error
+        warningSteps: [], // Array Steps warning
+        hiddenSteps: [], // Hidden steps
+        getContent: null // Callback function for content loading
+    });
+</script>
 @endsection
