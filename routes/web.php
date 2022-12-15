@@ -30,6 +30,8 @@ Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
 Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
     Route::resource('documentpanel', PanelDocuments::class);
+    Route::get('/improve', [PanelDocuments::class, 'improve'])->name("improve");
+
 
 });
 

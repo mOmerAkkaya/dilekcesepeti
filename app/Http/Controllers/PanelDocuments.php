@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Document;
 use App\Models\Values;
 use App\Http\Controllers\UploadController;
+use App\Models\Improve;
 use Throwable;
 
 class PanelDocuments extends Controller
@@ -180,5 +181,11 @@ class PanelDocuments extends Controller
         }
 
         return $text;
+    }
+
+    public function improve(){
+        $data   =   Improve::orderBy('id', 'desc')->get();
+        return view("panel.documents.improve", compact('data'));
+
     }
 }

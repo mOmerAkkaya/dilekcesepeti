@@ -113,6 +113,11 @@ class DocumentController extends Controller
     }
     public function categories($slug=null)
     {
+        $slug   =   explode("-", $slug);
+        $page   =   Page::where('slug', 'categories')->firstOrFail();
+        $data   =   Document::with('get_doc_type')->where('sub_cat',$slug[0])->orderby('id', 'desc')->cursorPaginate(config('constants.paginate'));
+        $query  =   $slug[1];
+        return view('pages.result', compact('data', 'query', 'page'));
         return $slug;
     }
     

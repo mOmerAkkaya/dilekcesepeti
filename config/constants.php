@@ -34,4 +34,5 @@ return [
         'judicial' => 18,
         'administration' => 19,
     ],
+    'pagination' => 10,
 ];

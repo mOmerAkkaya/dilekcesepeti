@@ -14,14 +14,14 @@
                 <li class="dropdown"><a href="#"><span>{{ __('menu.petition') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         @foreach(App\Http\Controllers\DocumentController::petitionList() as $key => $value)
-                        <li><a href="{{route('document.categories',$value[0]->id."-".$value[0]->get_sub_cat->value)}}">{{$value[0]->get_sub_cat->value}}</a></li>
+                        <li><a href="{{route('document.categories',$key."-".$value[0]->get_sub_cat->value)}}">{{$value[0]->get_sub_cat->value}}</a></li>
                         @endforeach
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#"><span>{{ __('menu.contract') }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         @foreach(App\Http\Controllers\DocumentController::contractList() as $key => $value)
-                        <li><a href="{{route('document.categories',$value[0]->id."-".$value[0]->get_sub_cat->value)}}">{{$value[0]->get_sub_cat->value}}</a></li>
+                        <li><a href="{{route('document.categories',$key."-".$value[0]->get_sub_cat->value)}}">{{$value[0]->get_sub_cat->value}}</a></li>
                         @endforeach
                     </ul>
                 </li>
