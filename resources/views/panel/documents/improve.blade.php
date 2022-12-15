@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section('title', 'Dökümanlar')
-@section('panel.improve.index', '')
+@section('title', 'Geliştirme')
+@section('panel.improve', '')
 @section('css')
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
