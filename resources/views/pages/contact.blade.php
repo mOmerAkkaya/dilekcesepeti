@@ -5,7 +5,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" style="background-image: url('../img/page-header.jpg');">
+        <div class="page-header d-flex align-items-center" style="background-image: url('../img/page-header-contact.jpg');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -74,7 +74,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input required type="text" class="form-control" name="gsm" id="gsm" placeholder="@Lang('pages/contact.gsm')">
+                            <input required type="tel" class="form-control" name="gsm" id="gsm" placeholder="@Lang('pages/contact.gsm')">
                         </div>
                         <div class="form-group mt-3">
                             <textarea required class="form-control" name="message" rows="5" placeholder="@Lang('pages/contact.message')"></textarea>
