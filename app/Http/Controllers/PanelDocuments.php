@@ -186,6 +186,5 @@ class PanelDocuments extends Controller
     public function improve(){
         $data   =   Improve::orderBy('id', 'desc')->get();
         return view("panel.documents.improve", compact('data'));
-
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\MainPageController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PanelDocuments;
 use App\Http\Controllers\PanelHome;
 
@@ -30,6 +31,8 @@ Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
 Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck'], function () {
     Route::get('/', [HomeController::class, 'index'])->name("index");
     Route::resource('documentpanel', PanelDocuments::class);
+    Route::resource('notifications', NotificationController::class);
+
     Route::get('/improve', [PanelDocuments::class, 'improve'])->name("improve");
 
 

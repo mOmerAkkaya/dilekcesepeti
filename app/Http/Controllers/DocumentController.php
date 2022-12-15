@@ -7,7 +7,7 @@ use App\Models\Page;
 use App\Models\Improve;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-
+use App\Http\Controllers\NotificationController;
 
 class DocumentController extends Controller
 {
@@ -21,7 +21,11 @@ class DocumentController extends Controller
         $page = Page::where('slug', 'searchresult')->firstOrFail();
         $query  =   $request["query"];
         $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->with('get_doc_type')->cursorPaginate(2);
-        (count($data)==0)? $this->Improve($query):true;
+        if (count($data)==0){
+            $this->Improve($query);
+            $notification = new NotificationController();
+            $notification->store('Improve',$query);
+        }
         return view('pages.result', compact('data','query','page'));
     }
 
@@ -118,7 +122,6 @@ class DocumentController extends Controller
         $data   =   Document::with('get_doc_type')->where('sub_cat',$slug[0])->orderby('id', 'desc')->cursorPaginate(config('constants.paginate'));
         $query  =   $slug[1];
         return view('pages.result', compact('data', 'query', 'page'));
-        return $slug;
     }
     
     public static function petitionList()
