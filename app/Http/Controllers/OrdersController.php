@@ -45,6 +45,7 @@ class OrdersController extends Controller
             'content'   => $content,
             'key'       => $key,
             'price'     => $price,
+            'statistics'=> date("Y-m"),
             'pay'       => 0            
         ]);
         if ($save){

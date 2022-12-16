@@ -21,8 +21,9 @@ return new class extends Migration
             $table->longText('key')->comment("Hash Key");
             $table->integer('pay')->default(0)->comment("Ödeme Durumu");
             $table->decimal('price', 10, 2)->comment('Document Price');
-            $table->softDeletes();
+            $table->string('statistics')->comment("İstatistik İçin Tarih");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

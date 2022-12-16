@@ -33,7 +33,8 @@
 
 <body>
     @php
-    $notification = \App\Models\Notification::create(['title'=>'401', 'value'=>url()->current()]);
+    @$user = " - UserID: " . Auth::user()->id;
+    $notification = \App\Models\Notification::create(['title'=>'401', 'value'=>url()->current() . @$user]);
     @endphp
     <main>
         <div class="container">
