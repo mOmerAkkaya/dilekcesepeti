@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Orders;
 use App\Http\Requests\StoreOrdersRequest;
 use App\Http\Requests\UpdateOrdersRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\NotificationController;
+
 
 class OrdersController extends Controller
 {
@@ -34,9 +37,24 @@ class OrdersController extends Controller
      * @param  \App\Http\Requests\StoreOrdersRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrdersRequest $request)
+    public function store($document_id, $content,$key,$price)
     {
-        //
+        $save   = Orders::create([
+            'user_id'   => Auth::user()->id,
+            'document_id'  => $document_id,
+            'content'   => $content,
+            'key'       => $key,
+            'price'     => $price,
+            'pay'       => 0            
+        ]);
+        if ($save){
+            $notification = new NotificationController();
+            $notification->store('Yeni Sipariş', Auth::user()->id . ' kullanıcısından yeni sipariş');
+            return $save;
+        }else{
+            abort(500);
+        }
+        
     }
 
     /**

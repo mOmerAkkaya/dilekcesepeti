@@ -8,6 +8,7 @@ use App\Models\Improve;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\OrdersController;
 
 class DocumentController extends Controller
 {
@@ -80,7 +81,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-
+        
         
         return "DÖKÜMAN DÜZENLEME";
     }
@@ -94,6 +95,8 @@ class DocumentController extends Controller
      */
     public function update(Request $request)
     {
+
+
         $page   =   Page::where('slug', 'show')->firstOrFail();
         $data   = Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
         $steps  = json_decode($data->steps, true);
@@ -101,9 +104,38 @@ class DocumentController extends Controller
         $new    = $_POST[$value["name"]];
         $data->template =  str_replace($value["name"], $new, $data->template);
         }
+
+        $template       = $data->template;
+        $cipher     = 'AES-128-ECB';
+        $key        = $this->generateRandomString();
+        $content    = openssl_encrypt($template, $cipher, $key);
+
+        $process    = New OrdersController;
+        $process    = $process->store($data->id, $content, $key, $data->price);     
+       
+
         return view('pages.finish', compact('data', 'page'));
 
     }
+
+    function generateRandomString($length = 30)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*.,+-/';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    public function pay (Request $request)
+    {
+
+
+        return "DÖKÜMAN ÖDEME";
+    }
+
 
     /**
      * Remove the specified resource from storage.

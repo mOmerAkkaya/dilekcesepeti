@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->comment("Kullanıcı ID'si");
+            $table->integer('document_id')->comment("Döküman ID'si");
+            $table->longText('content')->comment("Döküman İçeriği");
+            $table->longText('key')->comment("Hash Key");
+            $table->integer('pay')->default(0)->comment("Ödeme Durumu");
+            $table->decimal('price', 10, 2)->comment('Document Price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

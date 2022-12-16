@@ -101,8 +101,11 @@
 
             <div class="col-lg-4">
                 <div class="services-list">
-                    <a href="#">Sepete Ekle</a>
                     <a href="#">Düzenle</a>
+                    <a href="#">Sepete Ekle</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        Hızlı Satın Al
+                    </button>
                 </div>
 
                 <h4>Döküman Hakkında Bilgi</h4>
@@ -137,4 +140,21 @@
 </section><!-- End Service Details Section -->
 </main><!-- End #main -->
 
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Güvenli Ödeme Sayfası</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="600" scrolling="no" src="https://dilekcesepeti.test/pay.php?id={{$data->id}}&name={{$data->name}}&ucret={{$data->price}}&bil_name={{Auth::user()->email}}&bil_email={{Auth::user()->email}}&bil_phone={{Auth::user()->id}}"></iframe>
+            </div>
+            <div class="modal-footer">
+                <small>Ödeme tamamlanması akabinde döküman e-posta adresinize gönderilecektir.</small>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
