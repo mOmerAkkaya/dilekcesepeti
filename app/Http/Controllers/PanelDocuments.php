@@ -152,7 +152,9 @@ class PanelDocuments extends Controller
      */
     public function destroy($id)
     {
-        //
+        Document::where('id', $id)->delete();
+        return redirect()->route('panel.documentpanel.index')->with('success', 'İşlem Başarılı');
+
     }
 
 

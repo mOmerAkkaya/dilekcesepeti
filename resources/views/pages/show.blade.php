@@ -49,47 +49,42 @@
 
             <div class="col">
                 <div class="services-list">
-                    <!-- SmartWizard html -->
-                    <div id="smartwizard">
-                        <ul class="nav">
-                            @foreach(json_decode($data->steps) as $key => $value)
-                            <li class="nav-item">
-                                <a class="nav-link" href="#step-{{$key+1}}">
-                                    <div class="num">{{$key+1}}</div>
-                                </a>
-                            </li>
-                            @endforeach
-                        </ul>
-
-                        <div class="tab-content">
-                            @foreach(json_decode($data->steps) as $key => $value)
-                            <div id="step-{{$key+1}}" class="tab-pane" role="tabpanel" aria-labelledby="step-{{$key+1}}">
-                                {{$value->description}}
-                                <hr>
-                                <div class="input-group input-group-lg">
-                                    <span class="input-group-text" id="inputGroup-sizing-lg">{{$value->label}}</span>
-                                    <input required type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-
-                        <!-- Include optional progressbar HTML -->
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
-
-
                     <form action="{{route('dokuman.update',[$data->slug])}}" method="post">
                         @csrf
                         <input type="hidden" name="slug" value="{{$data->slug}}" />
                         @method('put')
+                        <!-- SmartWizard html -->
+                        <div id="smartwizard">
+                            <ul class="nav">
+                                @foreach(json_decode($data->steps) as $key => $value)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#step-{{$key+1}}">
+                                        <div class="num">{{$key+1}}</div>
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
 
+                            <div class="tab-content">
+                                @foreach(json_decode($data->steps) as $key => $value)
+                                <div id="step-{{$key+1}}" class="tab-pane" role="tabpanel" aria-labelledby="step-{{$key+1}}">
+                                    {{$value->description}}
+                                    <hr>
+                                    <div class="input-group input-group-lg">
+                                        <span class="input-group-text" id="inputGroup-sizing-lg">{{$value->label}}</span>
+                                        <input required type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+
+                            <!-- Include optional progressbar HTML -->
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
                     </form>
-
                 </div>
-
             </div>
 
 
@@ -158,7 +153,7 @@
             position: 'bottom', // none|top|bottom|both
             showNextButton: true, // show/hide a Next button
             showPreviousButton: true, // show/hide a Previous button
-            extraHtml: '' // Extra html to show on toolbar
+            extraHtml: '<button type="submit" class="btn btn-success" onclick="onFinish()">Finish</button>'
         },
         anchor: {
             enableNavigation: true, // Enable/Disable anchor navigation 

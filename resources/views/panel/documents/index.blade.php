@@ -40,6 +40,7 @@
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Price</th>
+                                    <th>Sil</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,6 +55,14 @@
                                     <td>{{$value->name}}</td>
                                     <td>{{$value->description}}</td>
                                     <td>{{$value->price}} ₺</td>
+                                    <td>
+                                        <form method="post" action="{{route('panel.documentpanel.show',[$value->id])}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></button>
+                                        </form>
+
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -71,21 +80,7 @@
 <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
     $('#table_id').dataTable({
-        "columns": [null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            {
-                "width": "25%"
-            },
-            {
-                "width": "25%"
-            },
-            null,
 
-        ]
     });
 </script>
 @endsection
