@@ -260,14 +260,10 @@
                 <div class="col-md-7 order-2 order-md-1">
                     <h3>{{ __('pages/index.whiteField.second.title') }}</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        Öncelikle, dökümanınızın amacını belirleyin. Bu, düzenleme sürecinin ne kadar yoğun olacağını ve hangi konulara odaklanacağınızı belirler.
                     </p>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+                        Örneğin, akademik bir dilekçe yazıyorsanız, dil ve yapı kurallarına daha fazla önem vermelisiniz. Dökümanınızı tekrar tekrar okuyun ve dil hatalarını düzeltin. Bu, kelime yanlışları, cümle yapısı hataları ve noktalama işaretleri gibi hataları bulmanızı sağlar. </p>
                 </div>
             </div><!-- Features Item -->
 
@@ -293,13 +289,18 @@
                 <div class="col-md-7 order-2 order-md-1">
                     <h3>{{ __('pages/index.whiteField.fourth.title') }}</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        Dil hatalarını düzeltmek ve okunabilirliğini artırmak için dilekçenizde değişiklikler yapabilirsiniz. Döküman düzenleme için bazı öneriler ve ipuçları vermeye çalışacağım:
                     </p>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
+                        Dökümanınızı bir dil checker programı (örneğin, Grammarly gibi) kullanarak da kontrol edebilirsiniz.
+
+                        Dökümanınızın okunabilirliğini artırmak için, cümleleri kısaltın ve paragrafları kısa tutun. Ayrıca, anahtar kelimeleri vurgulamak için italik, bold ya da altı çizili yazı tipi kullanın.
+
+                        Dökümanınızın yapısını düzenleyin. Özet, giriş, gelişme ve sonuç bölümlerinden oluşan bir yapı kullanın. Bu, dökümanınızı daha anlaşılır ve düzenli hale getirir.
+
+                        Dökümanınızı başkaları ile paylaşarak, yazım ve dil hatalarını bulmalarına yardımcı olun. Bu, dökümanınızın daha iyi bir şekilde düzenlenmiş olmasını sağlar.
+
+                        Son olarak, dökümanınızı revize etmeyi unutmayın.
                     </p>
                 </div>
             </div><!-- Features Item -->
