@@ -48,8 +48,8 @@
                                     <td>{{$value->email}}</td>
                                     <td>{{$value->gsm}}</td>
                                     <td>{{$value->message}}</td>
-                                    <td>{{$value->getUser->name}}</td>
-                                    <td>{{$value->getDoc->name}}</td>
+                                    <td>{{$value->user_id}}</td>
+                                    <td>{{$value->document_id}}</td>
                                     <td>{{$value->created_at}}</td>
                                 </tr>
                                 @endforeach

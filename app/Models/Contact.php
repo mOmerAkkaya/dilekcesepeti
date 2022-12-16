@@ -14,11 +14,4 @@ class Contact extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function getUser(){
-        return $this->hasOne(User::class,'id','user_id');
-    }
-    public function getDoc()
-    {
-        return $this->hasOne(Document::class, 'id', 'document_id');
-    }
 }

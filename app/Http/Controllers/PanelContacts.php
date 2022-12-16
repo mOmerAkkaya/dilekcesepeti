@@ -14,7 +14,7 @@ class PanelContacts extends Controller
      */
     public function index()
     {
-        $data   =   Contact::with('getUser', 'getDoc')->orderBy('id', 'desc')->get();
+        $data   =   Contact::orderBy('id', 'desc')->get();
         return view("panel.contacts.index", compact('data'));
     }
 
