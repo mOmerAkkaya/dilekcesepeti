@@ -68,7 +68,9 @@ class PanelContents extends Controller
      */
     public function edit($id)
     {
-        //
+        $data   =   Page::where('id', $id)->first();
+        return view("panel.contents.edit", compact('data'));
+
     }
 
     /**
@@ -80,7 +82,13 @@ class PanelContents extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $document = Page::find($id);
+        $document->title        =  $request->title;
+        $document->description  =  $request->description;
+        $document->content      =  $request->content;
+        $document->no_index     =  $request->no_index;
+        $document->save();
+        return redirect()->route('panel.contents.index')->with('success', 'İşlem Başarılı');
     }
 
     /**

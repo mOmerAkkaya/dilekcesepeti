@@ -42,7 +42,7 @@
                             <tbody>
                                 @foreach ($data as $key => $value)
                                 <tr>
-                                    <th><a href="{{route('panel.contents.show',[$value->id])}}">{{$value->id}}</a></th>
+                                    <th><a href="{{route('panel.contents.edit',[$value->id])}}">{{$value->id}}</a></th>
                                     <td>{{$value->slug}}</td>
                                     <td>{{$value->title}}</td>
                                     <td>{{$value->description}}</td>

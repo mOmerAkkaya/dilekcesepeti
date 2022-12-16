@@ -18,11 +18,11 @@
                 <div class="card">
                     <div class="card-body">
                         <a href="{{route('panel.contents.create')}}">
-                            <h5 class=" card-title">Yeni Döküman</h5>
+                            <h5 class=" card-title">Yeni İçerik</h5>
                         </a>
                         <p>
-                        <form action="{{route('panel.contents.store')}}" method="POST" enctype="multipart/form-data">
-
+                        <form action="{{route('panel.contents.update',[$data->id])}}" method="POST" enctype="multipart/form-data">
+                            @method('put')
                             @csrf
                             <!-- Default Accordion -->
                             <div class="accordion" id="accordionExample">
@@ -37,7 +37,7 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Adı</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="title" class="form-control" required>
+                                                    <input type="text" name="title" class="form-control" value="{{$data->title}}" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,7 +54,7 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Açıklama</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="description" class="form-control" required>
+                                                    <input type="text" name="description" value="{{$data->description}}" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +71,7 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Adı</label>
                                                 <div class="col-sm-10">
-                                                    <textarea name="content"></textarea>
+                                                    <textarea name="content">{!!$data->content!!}</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,9 +86,9 @@
                                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-2 col-form-label">Yes / No</label>
+                                                <label for="inputText" class="col-sm-2 col-form-label">Adı</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" name="no_index" class="form-control" value="no" required>
+                                                    <input type="text" name="no_index" value="{{$data->no_index}}" class="form-control" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                     </div>
                 </div><!-- End Default Accordion Example -->
                 <p></p>
-                <p><button type="submit" class="btn btn-primary">Ekle</button></p>
+                <p><button type="submit" class="btn btn-primary">Güncelle</button></p>
                 </form>
                 </p>
             </div>
