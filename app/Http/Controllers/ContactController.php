@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\Page;
 use Illuminate\Http\Request;
+use App\Http\Controllers\NotificationController;
 
 class ContactController extends Controller
 {
@@ -50,6 +51,8 @@ class ContactController extends Controller
             ]);
             ($request->secretCaptcha != $request->captcha) ? abort(401) : true;
             $save = Contact::create($request->all());
+            $notification = new NotificationController();
+            $notification->store('İletişim', $request->message);
             return redirect()->back()->with('message', 'İşlem Başarılı');
         } catch (\Exception $e) {
             return redirect()->back()->with('message', 'İşlem Başarısız');

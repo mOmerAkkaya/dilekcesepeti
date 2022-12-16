@@ -32,7 +32,9 @@
 </head>
 
 <body>
-
+    @php
+    $notification = \App\Models\Notification::create(['title'=>'401', 'value'=>url()->current()]);
+    @endphp
     <main>
         <div class="container">
 

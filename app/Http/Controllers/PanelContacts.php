@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
-class PageController extends Controller
+class PanelContacts extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view("pages.content.index");
-
+        $data   =   Contact::with('getUser', 'getDoc')->orderBy('id', 'desc')->get();
+        return view("panel.contacts.index", compact('data'));
     }
 
     /**
@@ -42,22 +42,21 @@ class PageController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $page   =   Page::where('slug', $slug)->first();
-        return view("pages.content.show", compact('page'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +65,10 @@ class PageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +76,10 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
+    public function destroy($id)
     {
         //
     }

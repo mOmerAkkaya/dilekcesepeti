@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string("slug");
             $table->string("title");
             $table->string("description");
+            $table->longText("content")->nullable();
             $table->string("no_index")->default("no");
             $table->timestamps();
             $table->softDeletes();

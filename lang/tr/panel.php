@@ -7,4 +7,6 @@ return [
     'documents'         => 'Dökümanlar',
     'improve'           => 'Geliştirme',
     'notification'      => 'Bildirimler',
+    'contact'           => 'İletişim',
+    'contents'           => 'İçerikler',
 ];

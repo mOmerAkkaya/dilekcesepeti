@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
 use Illuminate\Http\Request;
+use App\Models\Page;
 
-class PageController extends Controller
+class PanelContents extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        return view("pages.content.index");
+        $data   =   Page::orderBy('id', 'desc')->get();
+        return view("panel.contents.index", compact('data'));
 
     }
 
@@ -25,7 +26,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view("panel.contents.create");
     }
 
     /**
@@ -36,28 +37,36 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slugify    = New PanelDocuments();
+        $slug       = $slugify->slugify($request->title);
+        $data = Page::create([
+            'slug'          =>  $slug,
+            'title'         =>  $request->title,
+            'description'   =>  $request->description,
+            'content'       =>  $request->content,
+            'no_index'      =>  $request->no_index
+        ]);
+        return redirect()->route('panel.contents.index')->with('success', 'İşlem Başarılı');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $page   =   Page::where('slug', $slug)->first();
-        return view("pages.content.show", compact('page'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +75,10 @@ class PageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +86,10 @@ class PageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Page  $page
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Page $page)
+    public function destroy($id)
     {
         //
     }

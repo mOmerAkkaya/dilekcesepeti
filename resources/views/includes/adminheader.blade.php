@@ -1,5 +1,5 @@
 @php
-$notifications = \App\Models\Notification::where('is_read',0)->get();
+$notifications = \App\Models\Notification::where('is_read',0)->orderBy('id','desc')->get();
 @endphp
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
@@ -39,8 +39,14 @@ $notifications = \App\Models\Notification::where('is_read',0)->get();
             Okunmayan <b>{{count($notifications)}}</b> bildirim var!
             <a href="{{route('panel.notifications.index')}}"><span class="badge rounded-pill bg-primary p-2 ms-2">Tümünü Gör</span></a>
           </li>
-
+          @php $i=0; @endphp
           @foreach($notifications as $key => $value)
+          @php
+          if($i==5){
+          break;
+          }
+          $i=$i+1;
+          @endphp
           <li>
             <hr class="dropdown-divider">
           </li>
@@ -389,9 +395,9 @@ $notifications = \App\Models\Notification::where('is_read',0)->get();
     </li><!-- End F.A.Q Page Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-contact.html">
+      <a class="nav-link @yield('panel.contact.index','collapsed')" href=" {{route('panel.contacts.index')}}">
         <i class="bi bi-envelope"></i>
-        <span>Contact</span>
+        <span>{{ __('panel.contact') }}</span>
       </a>
     </li><!-- End Contact Page Nav -->
 
@@ -403,9 +409,9 @@ $notifications = \App\Models\Notification::where('is_read',0)->get();
     </li><!-- End Register Page Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-login.html">
+      <a class="nav-link @yield('panel.contents.index','collapsed')" href="{{route('panel.contents.index')}}">
         <i class="bi bi-box-arrow-in-right"></i>
-        <span>Login</span>
+        <span>{{ __('panel.contents') }}</span>
       </a>
     </li><!-- End Login Page Nav -->
 

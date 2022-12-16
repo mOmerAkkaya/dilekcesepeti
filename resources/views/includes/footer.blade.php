@@ -21,9 +21,9 @@
                 <ul>
                     <li><a href="#">{{ __('menu.home') }}</a></li>
                     <li><a href="#">{{ __('footer.about') }}</a></li>
-                    <li><a href="{{route('document.index', ['Evrak'])}}">{{ __('menu.petition') }}</a></li>
-                    <li><a href="#">{{ __('menu.contract') }}</a></li>
-                    <li><a href="#">{{ __('menu.judicial') }}</a></li>
+                    <li><a href="#">Gizlilik Politikası</a></a></li>
+                    <li><a href="#">Kullanım Şartları</a></li>
+                    <li><a href="#">Çerez Politikası</a></li>
                 </ul>
             </div>
 

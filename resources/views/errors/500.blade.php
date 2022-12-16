@@ -10,8 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('assets/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link href="{{asset('img/favicon.ico')}}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -32,7 +31,10 @@
 </head>
 
 <body>
-
+    @php
+    @$user = " - UserID: " . Auth::user()->id;
+    $notification = \App\Models\Notification::create(['title'=>'500', 'value'=>url()->current() . @$user]);
+    @endphp
     <main>
         <div class="container">
 
@@ -48,17 +50,17 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.min.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="{{asset('assets/vendor/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/chart.js/chart.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/echarts/echarts.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/quill/quill.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+    <script src="{{asset('assets/vendor/tinymce/tinymce.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
 </body>
 
