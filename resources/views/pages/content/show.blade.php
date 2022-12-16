@@ -26,11 +26,7 @@
       </div><!-- End Breadcrumbs -->
 
       <section class="sample-page">
-          <div class="container" data-aos="fade-up">
-              <p>
-                  {!! $page->content !!}
-              </p>
-          </div>
+          <div class="container" data-aos="fade-up">{!! $page->content !!}</div>
       </section>
 
   </main><!-- End #main -->

@@ -21,9 +21,9 @@
                 <ul>
                     <li><a href="#">{{ __('menu.home') }}</a></li>
                     <li><a href="#">{{ __('footer.about') }}</a></li>
-                    <li><a href="#">Gizlilik Politikası</a></a></li>
-                    <li><a href="#">Kullanım Şartları</a></li>
-                    <li><a href="#">Çerez Politikası</a></li>
+                    <li><a href="{{route('icerik.show',['gizlilik-bildirimi'])}}">Gizlilik Politikası</a></a></li>
+                    <li><a href="{{route('icerik.show',['kullanim-sartlari'])}}">Kullanım Şartları</a></li>
+                    <li><a href="{{route('icerik.show',['cerez-politikasi'])}}">Çerez Politikası</a></li>
                 </ul>
             </div>
 
