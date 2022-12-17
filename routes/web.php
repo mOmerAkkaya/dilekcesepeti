@@ -53,3 +53,11 @@ Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
     Route::get('/', [UserHomeController::class, 'index'])->name("index");
 });
+
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    return "Cache is cleared";
+})->name("cache");;

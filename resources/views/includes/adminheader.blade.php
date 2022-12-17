@@ -169,9 +169,9 @@ $notifications = \App\Models\Notification::where('is_read',0)->orderBy('id','des
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
+            <a class="dropdown-item d-flex align-items-center" href="{{route('cache')}}">
               <i class="bi bi-question-circle"></i>
-              <span>Need Help?</span>
+              <span>Önbellik Temizle</span>
             </a>
           </li>
           <li>
