@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>@yield('title', $page->title, 'Dilekçe Sepeti')</title>
-<meta content="{{$page->description}}" name="description">
+<title>@yield('title', $page->title) - Dilekçe Sepeti</title>
+<meta name="description" content="@yield('title', $page->description) - Dilekçe Sepeti">
 
 @if ($page->no_index=="yes")
 <meta name="robots" content="noindex">

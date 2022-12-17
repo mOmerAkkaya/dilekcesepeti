@@ -32,6 +32,10 @@ class Document extends Model
     {
         return $this->hasOne('\App\Models\Values', 'id', 'sub_cat');
     }
-    
+
+    public function comments()
+    {
+        return $this->hasMany('\App\Models\Comments', 'document_id', 'id');
+    }
    
 }

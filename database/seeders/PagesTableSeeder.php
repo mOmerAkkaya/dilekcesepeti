@@ -52,6 +52,12 @@ class PagesTableSeeder extends Seeder
                 "description"   => 'Dökümanı Göster',
                 "no_index"      => 'no',
             ],
+            [
+                "slug"          => 'success',
+                "title"         => 'İşlem Tamamlandı',
+                "description"   => 'İşlem Tamamlandı',
+                "no_index"      => 'no',
+            ],
         ]);
     }
 }

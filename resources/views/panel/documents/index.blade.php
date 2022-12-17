@@ -32,8 +32,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Doc Type</th>
-                                    <th>Sub Doc Type</th>
+                                    <th>Doc T.</th>
+                                    <th>Sub D.T.</th>
                                     <th>Type</th>
                                     <th>Cat</th>
                                     <th>Sub Cat</th>
@@ -53,7 +53,7 @@
                                     <td>{{$value->get_cat->value}}</td>
                                     <td>{{$value->get_sub_cat->value}}</td>
                                     <td>{{$value->name}}</td>
-                                    <td>{{$value->description}}</td>
+                                    <td>{{strip_tags($value->description)}}</td>
                                     <td>{{$value->price}} ₺</td>
                                     <td>
                                         <form method="post" action="{{route('panel.documentpanel.show',[$value->id])}}">

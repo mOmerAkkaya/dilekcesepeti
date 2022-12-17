@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Mail\OrderShipped;
 use App\Models\Page;
 use App\Models\Improve;
 use App\Models\Orders;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrdersController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class DocumentController extends Controller
 {
@@ -100,7 +101,7 @@ class DocumentController extends Controller
 
 
         $page   =   Page::where('slug', 'show')->firstOrFail();
-        $data   =   Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
+        $data   =   Document::where('slug', $request->slug)->with('get_doc_type',)->firstOrFail();
         $steps  =   json_decode($data->steps, true);
         foreach ($steps as $key => $value){   
         $new    = $_POST[$value["name"]];
@@ -133,12 +134,16 @@ class DocumentController extends Controller
 
     public function paysuccess ($id)
     {
-        echo $_POST;
+        $page = Page::where('slug', 'success')->firstOrFail();
+        print_r($_POST);
+        if (@$_POST["status"]!= "success"){
+            abort(401);
+        }
         $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
         $data = $order->content;
         $cipher = 'AES-128-ECB';
         $key = $order->key;
-        echo $decoded = openssl_decrypt($data, $cipher, $key);
+        $decoded = openssl_decrypt($data, $cipher, $key);
 
         if (!$decoded) {
             echo "Hatalı bir değer gönderdiniz";
@@ -146,9 +151,9 @@ class DocumentController extends Controller
         }else{
         $order->pay = 1;
         $order->save();
+        Mail::to($order->user_email)->send(new OrderShipped($order));
         }
-
-
+        return view('pages.success', compact('order','page', 'decoded'));
     }
 
 

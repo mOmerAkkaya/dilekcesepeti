@@ -416,16 +416,16 @@ $notifications = \App\Models\Notification::where('is_read',0)->orderBy('id','des
     </li><!-- End Login Page Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-error-404.html">
-        <i class="bi bi-dash-circle"></i>
-        <span>Error 404</span>
+      <a class="nav-link @yield('panel.comments.index','collapsed')" href="{{route('panel.comments.index')}}">
+        <i class=" ri-question-answer-line"></i>
+        <span>{{ __('panel.comments') }}</span>
       </a>
     </li><!-- End Error 404 Page Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="pages-blank.html">
-        <i class="bi bi-file-earmark"></i>
-        <span>Blank</span>
+      <a class="nav-link @yield('panel.members.index','collapsed')" href="{{route('panel.members.index')}}">
+        <i class=" ri-file-user-fill"></i>
+        <span>{{ __('panel.members') }}</span>
       </a>
     </li><!-- End Blank Page Nav -->
 

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section('title', 'Bildirimler')
-@section('panel.notifications.index', '')
+@section('title', 'Yorumlar')
+@section('panel.comments.index', '')
 @section('css')
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
@@ -9,11 +9,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>{{ __('panel.notification') }}</h1>
-        <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" @isset($_GET['all']) checked @endif disabled id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault"><a href="{{route('panel.notifications.index','all')}}">Tüm Bildirimler</a></label>
-        </div>
+        <h1>{{ __('panel.comments') }}</h1>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -33,34 +29,22 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Başlık</th>
-                                    <th>İçerik</th>
-                                    <th>Okunma Durumu</th>
+                                    <th>Kullanıcı</th>
+                                    <th>Döküman</th>
+                                    <th>Yorum</th>
+                                    <th>Derecelendirme</th>
                                     <th>Oluşturulma Tarihi</th>
-                                    <th>Okunma Tarihi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($data as $key => $value)
                                 <tr>
-                                    <td>
-                                        @if($value->is_read!=0)
-                                        {{$value->id}}
-                                        @else
-                                        <form method="post" action="{{route('panel.notifications.update',[$value->id])}}">@csrf @method('put')<button type="submit" class="btn btn-primary btn-sm">{{$value->id}}</button></form>
-                                        @endif
-                                    </td>
-                                    <td>{{$value->title}}</td>
-                                    <td>{{$value->value}}</td>
-                                    <td>
-                                        @if ($value->is_read==0)
-                                        <button type="button" class="btn btn-warning"><i class="bi bi-exclamation-triangle"></i></button>
-                                        @else
-                                        <button type="button" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
-                                        @endif
-                                    </td>
+                                    <td>{{$value->id}}</td>
+                                    <td>{{$value->user[0]->name}}</td>
+                                    <td>{{$value->document[0]->name}}</td>
+                                    <td>{{$value->comment   }}</td>
+                                    <td>{{$value->rank}}</td>
                                     <td>{{$value->created_at}}</td>
-                                    <td>@if($value->created_at!=$value->updated_at){{$value->updated_at}}@endif</td>
                                 </tr>
                                 @endforeach
                             </tbody>

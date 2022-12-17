@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Döküman Oluşturma - '. $data->name)
+@section('title', $data->name)
 @section('panel.index', '')
 @section('css')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">

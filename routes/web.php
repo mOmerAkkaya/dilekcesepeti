@@ -14,6 +14,8 @@ use App\Http\Controllers\PanelContents;
 use App\Http\Controllers\PanelHome;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PayControlller;
+use App\Http\Controllers\PanelComments;
+use App\Http\Controllers\PanelMembers;
 
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
@@ -43,6 +45,8 @@ Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck
     Route::resource('notifications', NotificationController::class);
     Route::resource('contacts', PanelContacts::class);
     Route::resource('contents', PanelContents::class);
+    Route::resource('comments', PanelComments::class);
+    Route::resource('members', PanelMembers::class);
     Route::get('/improve', [PanelDocuments::class, 'improve'])->name("improve");
 });
 

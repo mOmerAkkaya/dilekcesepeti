@@ -8,5 +8,7 @@ return [
     'improve'           => 'Geliştirme',
     'notification'      => 'Bildirimler',
     'contact'           => 'İletişim',
-    'contents'           => 'İçerikler',
+    'contents'          => 'İçerikler',
+    'comments'          => 'Yorumlar',
+    'members'           => 'Üyeler',
 ];

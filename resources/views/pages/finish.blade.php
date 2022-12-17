@@ -101,24 +101,33 @@
 
             <div class="col-lg-4">
                 <div class="services-list">
-                    <a href="#">Düzenle</a>
-                    <a href="#">Sepete Ekle</a>
+                    <h4>Döküman Hakkında Bilgi</h4>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> <span>Ortalama Süre : <b>{!!$data->time!!}</b> dk.</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>Toplam Yorum : <b>{{$data->comments->count()}}</b></span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı : <b>{{\App\Models\Orders::where('document_id',$data->id)->count()}}</b></span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
+                    </ul>
                 </div>
                 <p>
                 <form action="{{ route('odeme.pay') }}" method="post">
                     @csrf
                     <input type="hidden" name="value" value="{{$process->key}}" />
-                    <button type="submit" class="btn btn-primary">Hızlı Satın Al</button>
+                    <button type="submit" class="btn btn-primary">Güvenli Satın Al</button>
+                    <button type="button" class="btn btn-secondary" disabled>Kaydet</button>
+                    <button type="button" class="btn btn-warning" disabled>İndir</button>
+                    <button type="button" class="btn btn-dark" disabled>Yazdır</button>
                 </form>
                 </p>
-                    <h4>Döküman Hakkında Bilgi</h4>
-                    <ul>
-                        <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>Yorum {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı {!!$data->time!!} dk.</span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
-                    </ul>
-                    <p></p>
+                <p>
+                <div class="card">
+                    @foreach($data->comments as $key => $value)
+                    <div class="card-body">
+                        {{$value->comment}}
+                    </div>
+                    @endforeach
+                </div>
+                </p>
             </div>
 
             <div class="col-lg-8">
@@ -142,23 +151,4 @@
     </div>
 </section><!-- End Service Details Section -->
 </main><!-- End #main -->
-
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Güvenli Ödeme Sayfası</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                {{"http://dilekcesepeti.test/odeme/odeme"}}
-                <iframe width="100%" height="600" scrolling="no" src="https://dilekcesepeti.test/pay.php?id={{$data->id}}&name={{$data->name}}&ucret={{$data->price}}&bil_name={{Auth::user()->email}}&bil_email={{Auth::user()->email}}&bil_phone={{Auth::user()->id}}"></iframe>
-            </div>
-            <div class="modal-footer">
-                <small>Ödeme tamamlanması akabinde döküman e-posta adresinize gönderilecektir.</small>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

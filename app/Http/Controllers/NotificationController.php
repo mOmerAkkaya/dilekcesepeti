@@ -14,7 +14,11 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $data   =   Notification::orderBy('id', 'desc')->get();
+        if (isset($_GET["all"])){
+            $data   =   Notification::orderBy('id', 'desc')->get();
+        }else{
+            $data   =   Notification::orderBy('id', 'desc')->where('is_read', 0)->get();
+        }
         return view("panel.notifications.index", compact('data'));
     }
 
