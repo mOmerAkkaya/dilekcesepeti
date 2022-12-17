@@ -114,7 +114,7 @@ class DocumentController extends Controller
         $process    = $process->store($data->id, $content, $key, $data->price);     
        
 
-        return view('pages.finish', compact('data', 'page'));
+        return view('pages.finish', compact('data', 'page','process'));
 
     }
 

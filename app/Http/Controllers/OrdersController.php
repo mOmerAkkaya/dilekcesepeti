@@ -39,7 +39,7 @@ class OrdersController extends Controller
      */
     public function store($document_id, $content,$key,$price)
     {
-        $save   = Orders::create([
+        $order   = Orders::create([
             'user_id'   => Auth::user()->id,
             'document_id'  => $document_id,
             'content'   => $content,
@@ -48,10 +48,10 @@ class OrdersController extends Controller
             'statistics'=> date("Y-m"),
             'pay'       => 0            
         ]);
-        if ($save){
+        if ($order){
             $notification = new NotificationController();
             $notification->store('Yeni Sipariş', Auth::user()->id . ' kullanıcısından yeni sipariş');
-            return $save;
+            return $order;
         }else{
             abort(500);
         }

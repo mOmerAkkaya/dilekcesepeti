@@ -222,10 +222,10 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr id="Steps">
-                                                                <td><input placeholder="text, date vs." required type="text" name="StepType[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken adı" required type="text" name="StepName[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken etiketi" required type="text" name="StepLabel[]" class="form-control"></td>
-                                                                <td><input placeholder="değişken açıklaması" required type="text" name="StepDescription[]" class="form-control"></td>
+                                                                <td><input placeholder="text, date vs." required type="text" name="StepType[]" value="text" class="form-control"></td>
+                                                                <td><input placeholder="değişken adı" required type="text" name="StepName[]" value="{baslik}" class="form-control"></td>
+                                                                <td><input placeholder="değişken etiketi" required type="text" name="StepLabel[]" value="{baslik}" class="form-control"></td>
+                                                                <td><input placeholder="değişken açıklaması" required type="text" name="StepDescription[]" valıe="value="{baslik}" class="form-control"></td>
                                                                 <td><input type="button" id="newrow" class="btn btn-success btn-sm" value="+"><input type="button" onclick="deleted()" class="btn btn-danger btn-sm" value="x"></td>
                                                             </tr>
                                                 </div>

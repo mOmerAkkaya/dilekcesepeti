@@ -103,11 +103,20 @@
                 <div class="services-list">
                     <a href="#">Düzenle</a>
                     <a href="#">Sepete Ekle</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Hızlı Satın Al
-                    </button>
                 </div>
-
+                <p>
+                    @php
+                    $id = $process->id;
+                    $name = $data->name;
+                    $userName = Auth::user()->name;
+                    $email = Auth::user()->email;
+                    $phone = "0505543535";
+                    $price = $process->price;
+                    @endphp
+                    <a href="{{ route('odeme.pay', [$id, $name, $userName,$email,$phone,$price]) }}">
+                        <button type="button" class="btn btn-primary">Hızlı Satın Al</button>
+                    </a>
+                </p>
                 <h4>Döküman Hakkında Bilgi</h4>
                 <ul>
                     <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
@@ -149,6 +158,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                {{"http://dilekcesepeti.test/odeme/odeme"}}
                 <iframe width="100%" height="600" scrolling="no" src="https://dilekcesepeti.test/pay.php?id={{$data->id}}&name={{$data->name}}&ucret={{$data->price}}&bil_name={{Auth::user()->email}}&bil_email={{Auth::user()->email}}&bil_phone={{Auth::user()->id}}"></iframe>
             </div>
             <div class="modal-footer">

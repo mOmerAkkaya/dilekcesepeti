@@ -13,7 +13,7 @@ use App\Http\Controllers\PanelContacts;
 use App\Http\Controllers\PanelContents;
 use App\Http\Controllers\PanelHome;
 use App\Http\Controllers\PageController;
-
+use App\Http\Controllers\PayControlller;
 
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
@@ -30,6 +30,10 @@ Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
 
 });
 
+Route::group(['prefix' => 'odeme', 'as' => 'odeme.'], function () {
+    Route::get('/odeme', [PayControlller::class, 'pay'])->name('pay');
+    Route::get('/basarili', [PayControlller::class, 'basarili'])->name('success');
+});
 
 
 

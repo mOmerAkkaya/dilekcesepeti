@@ -48,8 +48,8 @@ class PagesTableSeeder extends Seeder
             ],
             [
                 "slug"          => 'show',
-                "title"         => 'Dökünanı Göster',
-                "description"   => 'Dökünanı Göster',
+                "title"         => 'Dökümanı Göster',
+                "description"   => 'Dökümanı Göster',
                 "no_index"      => 'no',
             ],
         ]);
