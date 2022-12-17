@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use App\Models\Page;
 use App\Models\Improve;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrdersController;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
 {
@@ -98,20 +100,20 @@ class DocumentController extends Controller
 
 
         $page   =   Page::where('slug', 'show')->firstOrFail();
-        $data   = Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
-        $steps  = json_decode($data->steps, true);
+        $data   =   Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
+        $steps  =   json_decode($data->steps, true);
         foreach ($steps as $key => $value){   
         $new    = $_POST[$value["name"]];
         $data->template =  str_replace($value["name"], $new, $data->template);
         }
 
-        $template       = $data->template;
+        $template   = $data->template;
         $cipher     = 'AES-128-ECB';
         $key        = $this->generateRandomString();
         $content    = openssl_encrypt($template, $cipher, $key);
 
         $process    = New OrdersController;
-        $process    = $process->store($data->id, $content, $key, $data->price);     
+        $process    = $process->store($data->id, $content, $key, $data->price,$data->name);     
        
 
         return view('pages.finish', compact('data', 'page','process'));
@@ -120,7 +122,7 @@ class DocumentController extends Controller
 
     function generateRandomString($length = 30)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*.,+-/';
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*.,+-';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
@@ -129,11 +131,19 @@ class DocumentController extends Controller
         return $randomString;
     }
 
-    public function pay (Request $request)
+    public function paysuccess ($id)
     {
+        $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
+        $data = $order->content;
+        $cipher = 'AES-128-ECB';
+        $key = $order->key;
+        $decoded = openssl_decrypt($data, $cipher, $key);
 
+        if (!$decoded) {
+            echo "Hatalı bir değer gönderdiniz";
+            abort(401);
+        }
 
-        return "DÖKÜMAN ÖDEME";
     }
 
 

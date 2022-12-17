@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->comment("Kullanıcı ID'si");
+            $table->string('user_name')->comment("Kullanıcı Adı");
+            $table->string('user_email')->comment("Kullanıcı E-Posta");
             $table->integer('document_id')->comment("Döküman ID'si");
+            $table->string('document_name')->comment("Döküman Adı");
             $table->longText('content')->comment("Döküman İçeriği");
             $table->longText('key')->comment("Hash Key");
             $table->integer('pay')->default(0)->comment("Ödeme Durumu");

@@ -30,9 +30,9 @@ Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
 
 });
 
-Route::group(['prefix' => 'odeme', 'as' => 'odeme.'], function () {
-    Route::get('/odeme', [PayControlller::class, 'pay'])->name('pay');
-    Route::get('/basarili', [PayControlller::class, 'basarili'])->name('success');
+Route::group(['prefix' => 'odeme', 'as' => 'odeme.', 'middleware' => 'auth'], function () {
+    Route::post('/odeme', [PayControlller::class, 'pay'])->name('pay');
+    Route::get('/basarili/{id}', [DocumentController::class, 'paysuccess'])->name('success');
 });
 
 

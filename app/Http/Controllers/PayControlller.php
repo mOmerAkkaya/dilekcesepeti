@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
 use Illuminate\Http\Request;
 
 class PayControlller
 {
-    return $_POST;
-   public function pay(){
-        error_reporting(0);
+   public function pay(Request $request){
+    $order  =   Orders::where('key', $request->value)->first();
+error_reporting(0);
 $shopier = new Shopier('c01b076985a5cc4eb0e783f69b853fd2', '397b52a7c7ac144741f65b7355b6c88b'); // Kendi api bilgilerinizi gireceksiniz.
 $shopier->setBuyer([ // Kullanıcı bilgileri
-'id' => $_POST["id"], // Sipariş kodu
-'paket' => $_POST["name"], // Paket adı
-'first_name' => "ömer", 'last_name' => 'akkaya', 'email' => "omer@omer.com.tr", 'phone' => "5324972238"]); // Kullanıcının ad, soyad, telefon, email bilgileri
+'id' => $order->id, // Sipariş kodu
+'paket' => $order->document_name, // Paket adı
+'first_name' => $order->user_name, 'last_name' => '('.$order->document_name.')', 'email' => $order->user_email, 'phone' => "0"]); // Kullanıcının ad, soyad, telefon, email bilgileri
 $shopier->setOrderBilling([
-'billing_address' => "omer@omer.com.tr", //Kullanıcının adresi
+'billing_address' => $order->user_email, //Kullanıcının adresi
 'billing_city' => 'İstanbul', // İl
 'billing_country' => 'Türkiye', //Ülke
 'billing_postcode' => '34000', //Posta Kodu
@@ -26,7 +27,7 @@ $shopier->setOrderShipping([
 'shipping_country' => 'Türkiye', //Ülke
 'shipping_postcode' => '34000', //Posta Kodu
 ]);
-die($shopier->run(34, $_POST["price"], 'https://dilekcesepeti.com.tr/odeme/basarili')); 
+die($shopier->run($order->id, $order->price, 'https://dilekcesepeti.com.tr/odeme/basarili')); 
 
    }
 

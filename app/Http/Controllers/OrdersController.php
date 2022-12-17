@@ -37,11 +37,14 @@ class OrdersController extends Controller
      * @param  \App\Http\Requests\StoreOrdersRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($document_id, $content,$key,$price)
+    public function store($document_id, $content,$key,$price, $document_name)
     {
         $order   = Orders::create([
             'user_id'   => Auth::user()->id,
+            'user_name'  => Auth::user()->name,
+            'user_email' => Auth::user()->email,
             'document_id'  => $document_id,
+            'document_name'=> $document_name,
             'content'   => $content,
             'key'       => $key,
             'price'     => $price,

@@ -105,26 +105,20 @@
                     <a href="#">Sepete Ekle</a>
                 </div>
                 <p>
-                    @php
-                    $id = $process->id;
-                    $name = $data->name;
-                    $userName = Auth::user()->name;
-                    $email = Auth::user()->email;
-                    $phone = "0505543535";
-                    $price = $process->price;
-                    @endphp
-                    <a href="{{ route('odeme.pay', [$id, $name, $userName,$email,$phone,$price]) }}">
-                        <button type="button" class="btn btn-primary">Hızlı Satın Al</button>
-                    </a>
+                <form action="{{ route('odeme.pay') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="value" value="{{$process->key}}" />
+                    <button type="submit" class="btn btn-primary">Hızlı Satın Al</button>
+                </form>
                 </p>
-                <h4>Döküman Hakkında Bilgi</h4>
-                <ul>
-                    <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
-                    <li><i class="bi bi-check-circle"></i> <span>Yorum {!!$data->time!!} dk.</span></li>
-                    <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı {!!$data->time!!} dk.</span></li>
-                    <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
-                </ul>
-                <p></p>
+                    <h4>Döküman Hakkında Bilgi</h4>
+                    <ul>
+                        <li><i class="bi bi-check-circle"></i> <span>Süre {!!$data->time!!} dk.</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>Yorum {!!$data->time!!} dk.</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı {!!$data->time!!} dk.</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
+                    </ul>
+                    <p></p>
             </div>
 
             <div class="col-lg-8">
