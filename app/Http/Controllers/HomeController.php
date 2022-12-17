@@ -28,10 +28,12 @@ class HomeController extends Controller
     {
         $total      = $this->total();
         $payments   = $this->payments();
+        $price      = $payments[1];
+        $payments   = $payments[0];
         $members    = $this->members();
         $last5      = Orders::with('user', 'document')->orderBy('id','desc')->take(5)->get();
         $most       = Orders::with('document')->groupBy('document_id')->selectRaw('document_id, count(*) as total')->take(5)->get();       
-        return view("panel.index",compact('total', 'payments','members','last5', 'most'));
+        return view("panel.index",compact('total','payments','price', 'members','last5', 'most'));
     }
 
     public function total(){
@@ -51,7 +53,9 @@ class HomeController extends Controller
     {
         $year = date('Y');
         $array = array();
+        $price = array();
         $total = "[";
+        $price = "[";
         for ($i = 1; $i <= 12; $i++) {
             if ($i < 10) {
                 $i = "0" . $i;
@@ -60,8 +64,11 @@ class HomeController extends Controller
         }
         foreach ($array as $key => $value) {
             $total = $total . Orders::where('statistics', $value)->where('pay', 1)->count() . ",";
+            $price = $price . Orders::where('statistics', $value)->where('pay', 1)->sum('price') . ",";
         }
-        return $total = rtrim($total, ',') . "]";
+        $total = rtrim($total, ',') . "]";
+        $price = rtrim($price, ',') . "]";
+        return $array   = array($total,$price);
     }
 
     public function members()
