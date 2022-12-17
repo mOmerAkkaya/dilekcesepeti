@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Document;
+use App\Models\Orders;
 use Illuminate\Support\Facades\Config;
 
 class CountController extends Controller
@@ -25,6 +26,6 @@ class CountController extends Controller
 
     public static function process()
     {
-        return Document::all()->count();
+        return Orders::all()->count();
     }
 }

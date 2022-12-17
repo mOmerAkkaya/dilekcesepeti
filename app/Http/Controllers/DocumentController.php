@@ -133,16 +133,21 @@ class DocumentController extends Controller
 
     public function paysuccess ($id)
     {
+        echo $_POST;
         $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
         $data = $order->content;
         $cipher = 'AES-128-ECB';
         $key = $order->key;
-        $decoded = openssl_decrypt($data, $cipher, $key);
+        echo $decoded = openssl_decrypt($data, $cipher, $key);
 
         if (!$decoded) {
             echo "Hatalı bir değer gönderdiniz";
             abort(401);
+        }else{
+        $order->pay = 1;
+        $order->save();
         }
+
 
     }
 
