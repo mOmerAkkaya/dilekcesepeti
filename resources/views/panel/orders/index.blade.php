@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section('title', 'Üyeler')
-@section('panel.members.index', '')
+@section('title', 'Siparişler')
+@section('panel.orders.index', '')
 @section('css')
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
@@ -9,7 +9,7 @@
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>{{ __('panel.members') }}</h1>
+        <h1>{{ __('panel.orders') }}</h1>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -29,11 +29,11 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Statü</th>
+                                    <th>UserID</th>
                                     <th>Adı Soyadı</th>
-                                    <th>E-Posta Adresi</th>
-                                    <th>Döküman Sayısı</th>
-                                    <th>Yorum Sayısı</th>
+                                    <th>Döküman Adı</th>
+                                    <th>Ücret</th>
+                                    <th>Ödeme Durumu</th>
                                     <th>Oluşturulma Tarihi</th>
                                 </tr>
                             </thead>
@@ -41,11 +41,17 @@
                                 @foreach ($data as $key => $value)
                                 <tr>
                                     <td>{{$value->id}}</td>
-                                    <td>@if ($value->is_admin==1) Admin @else Kullanıcı @endif</td>
-                                    <td>{{$value->name}}</td>
-                                    <td>{{$value->email}}</td>
-                                    <td>@if ($value->orders!="") İşlem Yaptı @else İşlem Yapmadı @endif</td>
-                                    <td>@if ($value->comment!="") Yorum Yaptı @else İşlem Yapmadı @endif</td>
+                                    <td>{{$value->user_id}}</td>
+                                    <td>{{$value->user_name}}</td>
+                                    <td>{{$value->document()}}</td>
+                                    <td>{{$value->price}} ₺</td>
+                                    <td>
+                                        @if ($value->pay==0)
+                                        <button type="button" class="btn btn-warning"><i class="bi bi-exclamation-triangle"></i></button>
+                                        @else
+                                        <button type="button" class="btn btn-success"><i class="bi bi-check-circle"></i></button>
+                                        @endif
+                                    </td>
                                     <td>{{$value->created_at}}</td>
                                 </tr>
                                 @endforeach
