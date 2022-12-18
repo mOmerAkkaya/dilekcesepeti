@@ -103,6 +103,7 @@
                 <div class="services-list">
                     <h4>Döküman Hakkında Bilgi</h4>
                     <ul>
+                        <li><i class="bi bi-check-circle"></i> <span>İşlem Ücreti: {!!$data->price !!} ₺</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Ortalama Süre : <b>{!!$data->time!!}</b> dk.</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Toplam Yorum : <b>{{$data->comments->count()}}</b></span></li>
                         <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı : <b>{{\App\Models\Orders::where('document_id',$data->id)->count()}}</b></span></li>
