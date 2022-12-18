@@ -224,7 +224,7 @@
                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 20px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                             <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;">Dökümana ulaşmak için <a href="https://dilekcesepeti.com.tr/odeme/basarili/{{$order->key}}">tıklayınız</a></span></p>
+                                                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;">Dökümana ulaşmak için <a href="https://dilekcesepeti.com.tr/hesabim/">tıklayınız</a></span></p>
                                                                 <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;"><strong>Sipariş No: {{$order->id}}</strong></span></p>
                                                             </div>
 
