@@ -275,7 +275,7 @@
                     <h3>{{ __('pages/index.whiteField.third.title') }}</h3>
                     <p>Dökümanınızı istediğiniz şekilde düzenleyip kaydedin ve daha sonra kullanın</p>
                     <ul>
-                        <li><i class="bi bi-check"></i> .</li>
+                        <li><i class="bi bi-check"></i> İşlem yaptığınız dökümanlardaki kişisel veriniz sistemimizde şifreli olarak kaydedilmektedir.</li>
                         <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
                         <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
                     </ul>
