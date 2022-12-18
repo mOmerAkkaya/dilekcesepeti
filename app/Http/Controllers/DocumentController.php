@@ -112,7 +112,8 @@ class DocumentController extends Controller
         $cipher     = 'AES-128-ECB';
         $key        = $this->generateRandomString();
         $content    = openssl_encrypt($template, $cipher, $key);
-        session()->put('key', $key);
+        session_start();
+        $_SESSION['key'] = $key;
         $process    = New OrdersController;
         $process    = $process->store($data->id, $content, $key, $data->price,$data->name);     
        
@@ -134,7 +135,7 @@ class DocumentController extends Controller
 
     public function paysuccess ()
     {
-        $id = session()->get('key');
+        $id = $_SESSION['key'];
         if ($id!=""){
 
         }else{
