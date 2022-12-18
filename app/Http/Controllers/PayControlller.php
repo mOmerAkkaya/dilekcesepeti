@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class PayControlller
 {
    public function pay(Request $request){
+        header('Set-Cookie: ' . session_name() . '=' . session_id() . '; SameSite=None; Secure', false);
+
     $order  =   Orders::where('key', $request->value)->first();
 error_reporting(0);
 $shopier = new Shopier('c01b076985a5cc4eb0e783f69b853fd2', '397b52a7c7ac144741f65b7355b6c88b'); // Kendi api bilgilerinizi gireceksiniz.
