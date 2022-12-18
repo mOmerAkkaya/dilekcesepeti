@@ -162,7 +162,6 @@ class DocumentController extends Controller
         $notification = new NotificationController();
         $notification->store('Yeni Ödeme', $order->price . ' ₺ ödeme alındı :{');
 
-        Mail::to($order->user_email)->send(new OrderShipped($order));
         }
         return view('pages.success', compact('order','page', 'decoded'));
     }
