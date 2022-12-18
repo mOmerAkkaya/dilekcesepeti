@@ -112,7 +112,7 @@ class DocumentController extends Controller
         $cipher     = 'AES-128-ECB';
         $key        = $this->generateRandomString();
         $content    = openssl_encrypt($template, $cipher, $key);
-
+        session()->put('key', $key);
         $process    = New OrdersController;
         $process    = $process->store($data->id, $content, $key, $data->price,$data->name);     
        
@@ -132,8 +132,14 @@ class DocumentController extends Controller
         return $randomString;
     }
 
-    public function paysuccess ($id)
+    public function paysuccess ()
     {
+        $id = session()->get('key');
+        if ($id!=""){
+
+        }else{
+            abort(401);
+        }
         $page = Page::where('slug', 'success')->firstOrFail();
         print_r($_POST);
         if (@$_POST["status"]!= "success"){
@@ -144,6 +150,7 @@ class DocumentController extends Controller
         $cipher = 'AES-128-ECB';
         $key = $order->key;
         $decoded = openssl_decrypt($data, $cipher, $key);
+
         if (!$decoded) {
             echo "Hatalı bir değer gönderdiniz";
             abort(401);
