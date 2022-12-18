@@ -146,7 +146,7 @@ class DocumentController extends Controller
             echo "Shopier Error";
             abort(401);
         }
-        $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
+        $order =  Orders::where('id', $id)->firstOrFail();
         $data = $order->content;
         $cipher = 'AES-128-ECB';
         $key = $order->key;
