@@ -160,6 +160,11 @@ class PanelDocuments extends Controller
 
     public static function slugify($text, string $divider = '-')
     {
+        $turkisLetter = ["Ğ", "Ü", "Ş", "İ", "Ö", "Ç", "ğ", "ü", "ş", "ı", "ö", "ç", " "];
+        $englishLetter = ["G", "U", "S", "I", "O", "C", "g", "u", "s", "i", "o", "c", "-"];
+
+        $text   = str_replace($turkisLetter, $englishLetter, strip_tags(trim($text)));
+
         // replace non letter or digits by divider
         $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
 
