@@ -226,6 +226,7 @@
                                                                 <td><input placeholder="değişken adı" required type="text" name="StepName[]" value="{baslik}" class="form-control"></td>
                                                                 <td><input placeholder="değişken etiketi" required type="text" name="StepLabel[]" value="{baslik}" class="form-control"></td>
                                                                 <td><input placeholder="değişken açıklaması" required type="text" name="StepDescription[]" value="{baslik}" class="form-control"></td>
+                                                                <td><input required type="checkbox" name="required[]" value="Zorunlu" class="form-control"></td>
                                                                 <td><input type="button" id="newrow" class="btn btn-success btn-sm" value="+"><input type="button" onclick="deleted()" class="btn btn-danger btn-sm" value="x"></td>
                                                             </tr>
                                                 </div>
