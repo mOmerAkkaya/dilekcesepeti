@@ -260,7 +260,7 @@
         el.parentNode.removeChild(el);
     }
     $("#newrow").click(function() {
-        $('#steps').append('<tr><td><input type="text" name="StepType[]" class="form-control"></td><td><input type="text" name="StepName[]" class="form-control"></td><td><input type="text" name="StepLabel[]" class="form-control"></td><td><input type="text" name="StepDescription[]" class="form-control"></td><td><input type="button" onclick="deleted(this)" class="btn btn-danger btn-sm" value="x"></td></tr>');
+        $('#steps').append('<tr><td><input type="text" name="StepType[]" class="form-control"></td><td><input type="text" name="StepName[]" class="form-control"></td><td><input type="text" name="StepLabel[]" class="form-control"></td><td><input type="text" name="StepDescription[]" class="form-control"></td><td><input type="checkbox" name="required[]" value="yes"><label for="required[]">(Z)</label></td><td><input type="button" onclick="deleted(this)" class="btn btn-danger btn-sm" value="x"></td></tr>');
     });
 </script>
 @endsection
