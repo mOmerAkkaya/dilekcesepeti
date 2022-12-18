@@ -134,19 +134,17 @@ class DocumentController extends Controller
 
     public function paysuccess ()
     {
-
-        return print_r($_POST);
-        $id = $_COOKIE['key'];
+        $id = $_POST['platform_order_id'];
         if ($id!=""){
 
         }else{
-            return "OTURUM BOŞ";
-        
+            echo "Session Error";
+            abort(401);
         }
         $page = Page::where('slug', 'success')->firstOrFail();
-        print_r($_POST);
         if (@$_POST["status"]!= "success"){
-            return "shopier gelen değer boş";
+            echo "Shopier Error";
+            abort(401);
         }
         $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
         $data = $order->content;
