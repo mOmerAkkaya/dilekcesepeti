@@ -72,7 +72,11 @@
                                     <hr>
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text" id="inputGroup-sizing-lg">{{$value->label}}</span>
+                                        @if($value->type=="textarea")
+                                        <textarea required name="{{$value->name}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                        @else
                                         <input required type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                        @endif
                                     </div>
                                 </div>
                                 @endforeach
