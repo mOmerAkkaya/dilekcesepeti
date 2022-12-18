@@ -217,6 +217,7 @@
                                                                 <th>Name</th>
                                                                 <th>Label</th>
                                                                 <th>Description</th>
+                                                                <th>Def</th>
                                                                 <th>Edit</th>
                                                             </tr>
                                                         </thead>
