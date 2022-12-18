@@ -32,7 +32,7 @@ Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
 
 });
 
-Route::group(['prefix' => 'odeme', 'as' => 'odeme.', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'odeme', 'as' => 'odeme.'], function () {
     Route::post('/odeme', [PayControlller::class, 'pay'])->name('pay');
     Route::post('/basarili', [DocumentController::class, 'paysuccess'])->name('success');
 });
