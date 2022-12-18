@@ -18,7 +18,8 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        //
+        $data   =   Orders::orderBy('id', 'desc')->get();
+        return view("panel.orders.index", compact('data'));
     }
 
     /**
