@@ -275,7 +275,7 @@
                     <h3>{{ __('pages/index.whiteField.third.title') }}</h3>
                     <p>Dökümanınızı istediğiniz şekilde düzenleyip kaydedin ve daha sonra kullanın</p>
                     <ul>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><i class="bi bi-check"></i> .</li>
                         <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
                         <li><i class="bi bi-check"></i> Facilis ut et voluptatem aperiam. Autem soluta ad fugiat.</li>
                     </ul>
@@ -292,7 +292,7 @@
                         Dil hatalarını düzeltmek ve okunabilirliğini artırmak için dilekçenizde değişiklikler yapabilirsiniz. Döküman düzenleme için bazı öneriler ve ipuçları vermeye çalışacağım:
                     </p>
                     <p>
-                        Dökümanınızı bir dil checker programı (örneğin, Grammarly gibi) kullanarak da kontrol edebilirsiniz.
+                        Dökümanınızı bir dil denetleyici programı (örneğin, Grammarly gibi) kullanarak da kontrol edebilirsiniz.
 
                         Dökümanınızın okunabilirliğini artırmak için, cümleleri kısaltın ve paragrafları kısa tutun. Ayrıca, anahtar kelimeleri vurgulamak için italik, bold ya da altı çizili yazı tipi kullanın.
 
