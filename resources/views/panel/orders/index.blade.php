@@ -35,6 +35,7 @@
                                     <th>Ücret</th>
                                     <th>Ödeme Durumu</th>
                                     <th>Oluşturulma Tarihi</th>
+                                    <th>Sil</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -53,6 +54,13 @@
                                         @endif
                                     </td>
                                     <td>{{$value->created_at}}</td>
+                                    <td>
+                                        <form method="post" action="{{route('panel.orders.destroy',[$value->id])}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></button>
+                                        </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
