@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
                 "name" => 'Muhammed Ömer AKKAYA',
                 "is_admin" => '1',
                 "email" => 'omer@muhammedomer.com.tr',
+                "gsm" => '5324972238',
                 "password" => '$2y$10$FctATxc3GMmxstVIlnoyAuwJdUOEvgMrPzIWe3AYuzei.qRBPU9Li',            
             ],
         ]);

@@ -273,7 +273,7 @@
                 </div>
                 <div class="col-md-7">
                     <h3>{{ __('pages/index.whiteField.third.title') }}</h3>
-                    <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+                    <p>Dökümanınızı istediğiniz şekilde düzenleyip kaydedin ve daha sonra kullanın</p>
                     <ul>
                         <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                         <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
