@@ -20,7 +20,7 @@ $jsonDecode = json_decode($data->steps);
 
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{route('dokuman.show', $data->slug)}}">
+                        <a href="{{route('dokuman.show', $data->slug)}}" target="_blank">
                             <h5 class=" card-title">Dökümanı Görüntüle</h5>
                         </a>
                         <p>
