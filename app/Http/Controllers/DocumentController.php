@@ -135,6 +135,7 @@ class DocumentController extends Controller
 
     public function paysuccess ()
     {
+        session_start();
         $id = $_SESSION['key'];
         if ($id!=""){
 
