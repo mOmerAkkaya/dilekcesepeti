@@ -357,7 +357,7 @@ $notifications = \App\Models\Notification::where('is_read',0)->orderBy('id','des
 
     <li class="nav-item">
       <a class="nav-link @yield('panel.orders.index','collapsed')" href="{{route('panel.orders.index')}}">
-        <i class="bi bi-file-earmark"></i>
+        <i class="ri-shopping-basket-2-fill"></i>
         <span>{{ __('panel.orders') }}</span>
       </a>
     </li><!-- End Profile Page Nav -->
