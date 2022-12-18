@@ -11,4 +11,5 @@ return [
     'contents'          => 'İçerikler',
     'comments'          => 'Yorumlar',
     'members'           => 'Üyeler',
+    'orders'            => 'Siparişler',
 ];

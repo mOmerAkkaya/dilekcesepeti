@@ -356,27 +356,11 @@ $notifications = \App\Models\Notification::where('is_read',0)->orderBy('id','des
     </li><!-- End Charts Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link @yield('panel.orders.index','collapsed')" href="{{route('panel.orders.index')}}">
+        <i class="bi bi-file-earmark"></i>
+        <span>{{ __('panel.orders') }}</span>
       </a>
-      <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="icons-bootstrap.html">
-            <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-          </a>
-        </li>
-        <li>
-          <a href="icons-remix.html">
-            <i class="bi bi-circle"></i><span>Remix Icons</span>
-          </a>
-        </li>
-        <li>
-          <a href="icons-boxicons.html">
-            <i class="bi bi-circle"></i><span>Boxicons</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End Icons Nav -->
+    </li><!-- End Profile Page Nav -->
 
     <li class="nav-heading">{{ __('panel.pages') }}</li>
 
