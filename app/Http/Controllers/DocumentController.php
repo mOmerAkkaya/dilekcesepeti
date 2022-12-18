@@ -134,6 +134,8 @@ class DocumentController extends Controller
 
     public function paysuccess ()
     {
+
+        return print_r($_POST);
         $id = $_COOKIE['key'];
         if ($id!=""){
 
