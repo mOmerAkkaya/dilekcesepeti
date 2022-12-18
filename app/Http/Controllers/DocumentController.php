@@ -107,6 +107,7 @@ class DocumentController extends Controller
         $new    = $_POST[$value["name"]];
         $data->template =  str_replace($value["name"], $new, $data->template);
         }
+        $data->template =  str_replace("{buguntarih}", date("d/m/Y"), $data->template);
 
         $template   = $data->template;
         $cipher     = 'AES-128-ECB';
