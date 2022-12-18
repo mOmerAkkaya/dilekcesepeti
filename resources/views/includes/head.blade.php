@@ -22,3 +22,15 @@
 <link href="{{asset('vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 <link href="{{asset('vendor/aos/aos.css')}}" rel="stylesheet">
 <link href="{{asset('css/main.css')}}" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-15XQPY9N93"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-15XQPY9N93');
+</script>
