@@ -112,8 +112,7 @@ class DocumentController extends Controller
         $cipher     = 'AES-128-ECB';
         $key        = $this->generateRandomString();
         $content    = openssl_encrypt($template, $cipher, $key);
-        session_start();
-        $_SESSION['key'] = $key;
+        setcookie("key", $key, time() + (24 * 60 * 60));
         $process    = New OrdersController;
         $process    = $process->store($data->id, $content, $key, $data->price,$data->name);     
        
@@ -135,8 +134,7 @@ class DocumentController extends Controller
 
     public function paysuccess ()
     {
-        session_start();
-        $id = $_SESSION['key'];
+        $id = $_COOKIE['key'];
         if ($id!=""){
 
         }else{
