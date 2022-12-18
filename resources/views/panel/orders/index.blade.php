@@ -43,7 +43,7 @@
                                     <td>{{$value->id}}</td>
                                     <td>{{$value->user_id}}</td>
                                     <td>{{$value->user_name}}</td>
-                                    <td>{{$value->document_id->document()}}</td>
+                                    <td>{{$value->document->name}}</td>
                                     <td>{{$value->price}} ₺</td>
                                     <td>
                                         @if ($value->pay==0)
