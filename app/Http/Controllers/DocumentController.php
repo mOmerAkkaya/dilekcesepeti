@@ -138,13 +138,13 @@ class DocumentController extends Controller
         if ($id!=""){
 
         }else{
-            return "OTURUM BOŞ"
+            return "OTURUM BOŞ";
         
         }
         $page = Page::where('slug', 'success')->firstOrFail();
         print_r($_POST);
         if (@$_POST["status"]!= "success"){
-            return "shopier gelen değer boş"
+            return "shopier gelen değer boş";
         }
         $order =  Orders::where('key', $id)->where('user_id', Auth::user()->id)->firstOrFail();
         $data = $order->content;
