@@ -102,8 +102,10 @@ class OrdersController extends Controller
      * @param  \App\Models\Orders  $orders
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Orders $orders)
+    public function destroy($id)
     {
-        //
+        Orders::where('id', $id)->delete();
+        return redirect()->route('panel.orders.index')->with('success', 'İşlem Başarılı');
+
     }
 }
