@@ -144,7 +144,6 @@ class DocumentController extends Controller
         $cipher = 'AES-128-ECB';
         $key = $order->key;
         $decoded = openssl_decrypt($data, $cipher, $key);
-
         if (!$decoded) {
             echo "Hatalı bir değer gönderdiniz";
             abort(401);

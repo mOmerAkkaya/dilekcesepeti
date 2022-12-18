@@ -27,7 +27,8 @@ $shopier->setOrderShipping([
 'shipping_country' => 'Türkiye', //Ülke
 'shipping_postcode' => '34000', //Posta Kodu
 ]);
-die($shopier->run($order->id, $order->price, 'https://dilekcesepeti.com.tr/odeme/basarili/'. $order->key)); 
+$url = 'https://dilekcesepeti.com.tr/odeme/basarili/'. $order->key;
+die($shopier->run($order->id, $order->price, $url)); 
 
    }
 

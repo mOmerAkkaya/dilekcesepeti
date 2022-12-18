@@ -206,26 +206,6 @@
                                             <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:80px 10px 10px;font-family:arial,helvetica,sans-serif;" align="left">
-
-                                                            <table width="100%" cellpadding="0" cellspacing="0" border="0">
-                                                                <tr>
-                                                                    <td style="padding-right: 0px;padding-left: 0px;" align="center">
-
-                                                                        <img align="center" border="0" src="https://img.bayengage.com/assets/1641809645206-1613615720006-tick (1).jpg" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 106px;" width="106" />
-
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                             <div style="line-height: 130%; text-align: left; word-wrap: break-word;">
@@ -244,7 +224,7 @@
                                                         <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 20px;font-family:arial,helvetica,sans-serif;" align="left">
 
                                                             <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;">Dökümana ulaşmak için tıklayınız <a href="https://dilekcesepeti.com.tr/basarili/{{$order->key}}"></a></span></p>
+                                                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;">Dökümana ulaşmak için <a href="https://dilekcesepeti.com.tr/odeme/basarili/{{$order->key}}">tıklayınız</a></span></p>
                                                                 <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: arial, helvetica, sans-serif; color: #34495e;"><strong>Sipariş No: {{$order->id}}</strong></span></p>
                                                             </div>
 
