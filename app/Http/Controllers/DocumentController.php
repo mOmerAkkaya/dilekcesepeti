@@ -69,7 +69,7 @@ class DocumentController extends Controller
      * @param  \App\Models\Document  $document
      * @return \Illuminate\Http\Response
      */
-    public function show($slug = null, Request $request)
+    public function show($slug, Request $request)
     {
         $page   =   Page::where('slug', 'show')->firstOrFail();
         $data   =   Document::where('slug', $slug)->with('get_doc_type')->firstOrFail();
