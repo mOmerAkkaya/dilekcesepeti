@@ -79,5 +79,8 @@
     $('#table_id').dataTable({
 
     });
+    $('table_id', sheet).each(function() {
+        $(this).attr('s', '0');
+    });
 </script>
 @endsection
