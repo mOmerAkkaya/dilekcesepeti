@@ -37,7 +37,7 @@
                         <h5 class="mb-1">{!! $value->name !!}</h5>
                         <small class="text-muted">Süre {{$value->time}} dk.</small>
                     </div>
-                    <p class="mb-1">{{strip_tags($value->description) }}</p>
+                    <p class="mb-1">{!!strip_tags($value->description) !!}</p>
                     <small class="text-muted">{{$value->get_doc_type->value}} - {{$value->get_sub_doc_type->value}} - {{$value->get_cat->value}} - {{$value->get_sub_cat->value}}</small>
                     <small class="text-muted" style="float: right;">Evrak Ücreti {{$value->price}} ₺</small>
                 </a>
