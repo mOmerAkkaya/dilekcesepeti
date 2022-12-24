@@ -87,7 +87,7 @@
                     <div>
                         <h4 class="title">{{ __('pages/index.third') }}</h4>
                         <p class="description">{{ __('pages/index.thirdSub') }}</p>
-                        <a href="service-details.html" class="readmore stretched-link"><span>{{ __('pages/index.more') }}</span><i class="bi bi-arrow-right"></i></a>
+                        <a href="{{route('icerik.show',['sozlesme-nasil-yapilir'])}}" class="readmore stretched-link"><span>{{ __('pages/index.more') }}</span><i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div><!-- End Service Item -->
 
