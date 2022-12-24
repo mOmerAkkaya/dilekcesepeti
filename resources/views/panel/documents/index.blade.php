@@ -73,10 +73,6 @@
 <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
     $('#table_id').dataTable({
-
-    });
-    $('table_id', sheet).each(function() {
-        $(this).attr('s', '0');
     });
 </script>
 @endsection
