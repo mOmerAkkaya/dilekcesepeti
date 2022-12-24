@@ -50,9 +50,6 @@
             </div>
             @endif
             </p>
-            {{ $data->links() }}
-
-
         </div>
     </section>
 

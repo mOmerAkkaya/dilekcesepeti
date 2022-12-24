@@ -24,7 +24,7 @@ class DocumentController extends Controller
     {
         $page = Page::where('slug', 'searchresult')->firstOrFail();
         $query  =   $request["query"];
-        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->with('get_doc_type')->cursorPaginate(2);
+        $data   =   Document::where('name','LIKE','%'.$query.'%')->orwhere('description', 'LIKE', '%' . $query . '%')->with('get_doc_type')->get();
         if (count($data)==0){
             $this->Improve($query);
             $notification = new NotificationController();
@@ -36,7 +36,7 @@ class DocumentController extends Controller
     public function all()
     {
         $page   =   Page::where('slug', 'alldocuments')->firstOrFail();
-        $data   =   Document::with('get_doc_type')->orderby('id','desc')->cursorPaginate(2);
+        $data   =   Document::with('get_doc_type')->orderby('id','desc')->get();
         $query  =   "Tüm Dökümanlar";
         return view('pages.result', compact('data', 'query', 'page'));
     }
