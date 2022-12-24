@@ -47,8 +47,8 @@
                                     <td>{{$value->get_doc_type->value}}</td>
                                     <td>{{$value->get_sub_cat->value}}</td>
                                     <td>{{$value->name}}</td>
-                                    <td>{!!substr(strip_tags($value->description),0,75)!!}</td>
-                                    <td>{{$value->price}} ₺</td>
+                                    <td>{!!strip_tags($value->description)!!}</td>
+                                    <td>{!! $value->price!!} ₺</td>
                                     <td>
                                         <form method="post" action="{{route('panel.documentpanel.show',[$value->id])}}">
                                             @csrf
@@ -72,6 +72,7 @@
 @section('js')
 <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 <script>
-    $('#table_id').dataTable({});
+    $('#table_id').dataTable({
+    });
 </script>
 @endsection
