@@ -51,7 +51,7 @@
                                     <td>{{$value->get_cat->value}}</td>
                                     <td>{{$value->get_sub_cat->value}}</td>
                                     <td>{{$value->name}}</td>
-                                    <td>{{strip_tags($value->description)}}</td>
+                                    <td>{!!strip_tags($value->description)!!}</td>
                                     <td>{{$value->price}} ₺</td>
                                     <td>
                                         <form method="post" action="{{route('panel.documentpanel.show',[$value->id])}}">
