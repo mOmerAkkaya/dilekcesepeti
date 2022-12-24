@@ -33,7 +33,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Doc T.</th>
-                                    <th>Cat</th>
                                     <th>Sub Cat</th>
                                     <th>Name</th>
                                     <th>Description</th>
@@ -46,7 +45,6 @@
                                 <tr>
                                     <th><a href="{{route('panel.documentpanel.show',[$value->id])}}">{{$value->id}}</a></th>
                                     <td>{{$value->get_doc_type->value}}</td>
-                                    <td>{{$value->get_cat->value}}</td>
                                     <td>{{$value->get_sub_cat->value}}</td>
                                     <td>{{$value->name}}</td>
                                     <td>{!!strip_tags($value->description)!!}</td>
