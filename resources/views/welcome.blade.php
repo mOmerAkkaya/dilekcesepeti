@@ -78,7 +78,7 @@
                     <div>
                         <h4 class="title">{{ __('pages/index.second') }}</h4>
                         <p class="description">{{ __('pages/index.secondSub') }}</p>
-                        <a href="service-details.html" class="readmore stretched-link"><span>{{ __('pages/index.more') }}</span><i class="bi bi-arrow-right"></i></a>
+                        <a href="{{route('icerik.show',['online-dilekce-yazma'])}}" class="readmore stretched-link"><span>{{ __('pages/index.more') }}</span><i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div><!-- End Service Item -->
 
