@@ -89,7 +89,7 @@
                     </form>
                 </div>
                 <div class="card">
-                    <h5 class="card-header">Dilekçe Özellikleri</h5>
+                    <h5 class="card-header">Döküman Özellikleri</h5>
                     <div class="card-body">
                         <h5 class="card-title">{!! $data->name !!}</h5>
                         <p class="card-text">{!! $data->description !!}</p>
