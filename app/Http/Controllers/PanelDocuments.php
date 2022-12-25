@@ -148,8 +148,7 @@ class PanelDocuments extends Controller
         $document->time          =  $request->time;
         $document->price         =  $request->price;
         $document->save();
-        return redirect()->route('panel.documentpanel.index')->with('success', 'İşlem Başarılı');
-
+        return redirect()->route('panel.documentpanel.index')->with('success', $id. ' numaralı İşlem Başarılı');
     }
 
     /**
