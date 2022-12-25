@@ -89,11 +89,10 @@
                     </form>
                 </div>
                 <div class="card">
-                    <h5 class="card-header">Featured</h5>
+                    <h5 class="card-header">Dilekçe Özellikleri</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">{!! $data->name !!}</h5>
+                        <p class="card-text">{!! $data->description !!}</p>
                     </div>
                 </div>
             </div>
