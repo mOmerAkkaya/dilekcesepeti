@@ -125,6 +125,9 @@ class PanelDocuments extends Controller
         preg_match_all('#{(.*?)}#si', $request->template, $link);
         $link = $link[0];
         foreach($link as $value){
+            if ($value=="{buguntarih}"){
+                break;
+            }
             array_push($stepsSub, ["type" => strtolower($value), "name" => strtolower($value), "label" => $value, "description" => $value, "required" => "no"]);
         }
         $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
