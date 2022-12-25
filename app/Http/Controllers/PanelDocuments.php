@@ -124,6 +124,7 @@ class PanelDocuments extends Controller
         if ($request->autosteps=="yes"){
         preg_match_all('#{(.*?)}#si', $request->template, $link);
         $link = $link[0];
+        $link = array_unique($link);
         foreach($link as $value){
             if ($value=="{buguntarih}"){
             continue;
