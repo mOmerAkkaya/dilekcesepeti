@@ -106,9 +106,9 @@ class DocumentController extends Controller
         foreach ($steps as $key => $value){   
         $new    = $_POST[$value["name"]];
         if ($value["type"]=="date"){
-                $data->template =  str_replace($value["name"], $new, $data->template);
+                $data->template =  str_replace($value["name"], (date("d/m/Y", strtotime($new))), $data->template);
         }else{
-        $data->template =  str_replace(date("d/m/Y", strtotime($value["name"])), $new, $data->template);
+        $data->template =  str_replace($value["name"], $new, $data->template);
         }
         }
         $data->template =  str_replace("{buguntarih}", date("d/m/Y"), $data->template);
