@@ -73,9 +73,9 @@
                                     <div class="input-group input-group-lg">
                                         <span class="input-group-text" id="inputGroup-sizing-lg">{{$value->label}}</span>
                                         @if($value->type=="textarea")
-                                        <textarea @if($value->required=="yes") required @endif name="{{$value->name}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></textarea>
+                                        <textarea if(@$value->required=="yes") required @endif name="{{$value->name}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"></textarea>
                                         @else
-                                        <input @if($value->required=="yes") required @endif type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                                        <input if(@$value->required=="yes") required @endif type="{{$value->type}}" name="{{$value->name}}" class=" form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                                         @endif
                                     </div>
                                 </div>
