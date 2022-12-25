@@ -224,7 +224,7 @@
                 <div class="col-lg-8 text-center">
                     <h3>{{ __('pages/index.callToAction.title') }}</h3>
                     <p> {{ __('pages/index.callToAction.titleSub') }}</p>
-                    <a class="cta-btn" href="#">{{ __('pages/index.callToAction.button') }}</a>
+                    <a class="cta-btn" href="https://wa.me/+905324972238">{{ __('pages/index.callToAction.button') }}</a>
                 </div>
             </div>
 

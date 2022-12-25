@@ -33,7 +33,7 @@ return [
         'sixthSub' => 'Kamu Kurumlarına (İdare) ve Özel işletmelere yapacağınız özlük, üniversite eğitimi, iş hayatı ile ilgili yazılı talep dilekçelerini bulabilirsiniz. Politikamız gereği Üniversite ve Lise Kategorisindeki dilekçeler ücretsizdir.',
     ],
     'callToAction' => [
-        'title' => 'Hukuksal Destek Al',
+        'title' => 'Dilekçe Yazmak İçin Destek Al',
         'titleSub' => 'Konut, aile hukuku, borç tahsilatı ve diğer birçok sorun türündeki haklarınızı korumak için danışın.',
         'button' => 'Hemen Ara',
         ],
