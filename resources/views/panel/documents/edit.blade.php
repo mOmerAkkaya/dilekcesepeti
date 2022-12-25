@@ -206,7 +206,7 @@ $jsonDecode = json_decode($data->steps);
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingEight">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                            Steps
+                                            Steps <input type="checkbox" name="autosteps" value="yes"><label for="autosteps">(Oto)</label>
                                         </button>
                                     </h2>
                                     <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
