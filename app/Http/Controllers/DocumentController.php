@@ -98,8 +98,6 @@ class DocumentController extends Controller
      */
     public function update(Request $request)
     {
-
-
         $page   =   Page::where('slug', 'show')->firstOrFail();
         $data   =   Document::where('slug', $request->slug)->with('get_doc_type',)->firstOrFail();
         $steps  =   json_decode($data->steps, true);
@@ -120,10 +118,7 @@ class DocumentController extends Controller
         setcookie("key", $key, time() + (24 * 60 * 60));
         $process    = New OrdersController;
         $process    = $process->store($data->id, $content, $key, $data->price,$data->name);     
-       
-
         return view('pages.finish', compact('data', 'page','process'));
-
     }
 
     function generateRandomString($length = 30)
