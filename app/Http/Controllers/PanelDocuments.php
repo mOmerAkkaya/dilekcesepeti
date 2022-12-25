@@ -121,7 +121,7 @@ class PanelDocuments extends Controller
     public function update(Request $request, $id)
     {
         $stepsSub = array();
-        if ($request->autosteps="yes"){
+        if ($request->autosteps=="yes"){
         preg_match_all('#{(.*?)}#si', $request->template, $link);
         $link = $link[0];
         foreach($link as $value){
