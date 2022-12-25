@@ -120,21 +120,22 @@ class PanelDocuments extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*
+        if ($request->autosteps="yes"){
         preg_match_all('#{(.*?)}#si', $request->template, $link);
         $link = $link[0];
-
         foreach($link as $value){
             echo $value;
         }
         die();
-        */
-        $document = Document::find($id);
-        $stepsSub = array();
-        foreach ($request->StepType as $key => $value) {
-            array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "name" => strtolower($request->StepName[$key]), "label" => $request->StepLabel[$key], "description" => $request->StepDescription[$key], "required" => @$request->required[$key]]);
+        }else{
+            $stepsSub = array();
+            foreach ($request->StepType as $key => $value) {
+                array_push($stepsSub, ["type" => strtolower($request->StepType[$key]), "name" => strtolower($request->StepName[$key]), "label" => $request->StepLabel[$key], "description" => $request->StepDescription[$key], "required" => @$request->required[$key]]);
+            }
+            $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
+
         }
-        $stepsSub = json_encode($stepsSub, JSON_UNESCAPED_UNICODE | JSON_FORCE_OBJECT);
+        $document = Document::find($id);
 
         $document->doc_type      =  $request->doc_type;
         $document->sub_doc_type  =  $request->sub_doc_type;
