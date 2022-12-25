@@ -34,4 +34,3 @@
 
     gtag('config', 'G-15XQPY9N93');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3846399680404454" crossorigin="anonymous"></script>
