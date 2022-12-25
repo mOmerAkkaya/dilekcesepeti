@@ -105,7 +105,11 @@ class DocumentController extends Controller
         $steps  =   json_decode($data->steps, true);
         foreach ($steps as $key => $value){   
         $new    = $_POST[$value["name"]];
-        $data->template =  str_replace($value["name"], $new, $data->template);
+        if ($value["type"]=="date"){
+                $data->template =  str_replace($value["name"], $new, $data->template);
+        }else{
+        $data->template =  str_replace(date("d/m/Y", strtotime($value["name"])), $new, $data->template);
+        }
         }
         $data->template =  str_replace("{buguntarih}", date("d/m/Y"), $data->template);
 
