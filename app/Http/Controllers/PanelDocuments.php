@@ -126,7 +126,7 @@ class PanelDocuments extends Controller
         $link = $link[0];
         foreach($link as $value){
             if ($value=="{buguntarih}"){
-                break;
+            continue;
             }
             array_push($stepsSub, ["type" => strtolower($value), "name" => strtolower($value), "label" => $value, "description" => $value, "required" => "no"]);
         }
