@@ -120,6 +120,7 @@ class PanelDocuments extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*
         preg_match_all('#{(.*?)}#si', $request->template, $link);
         $link = $link[0];
 
@@ -127,6 +128,7 @@ class PanelDocuments extends Controller
             echo $value;
         }
         die();
+        */
         $document = Document::find($id);
         $stepsSub = array();
         foreach ($request->StepType as $key => $value) {
