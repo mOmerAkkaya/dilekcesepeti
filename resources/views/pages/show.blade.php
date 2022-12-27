@@ -163,7 +163,7 @@
             position: 'bottom', // none|top|bottom|both
             showNextButton: true, // show/hide a Next button
             showPreviousButton: true, // show/hide a Previous button
-            extraHtml: '<button type="submit" class="btn btn-success" onclick="onFinish()">Bitir</button>'
+            extraHtml: '@if (Auth::check())<button type="submit" class="btn btn-success" onclick="onFinish()">Bitir</button>@else Lütfen Giriş Yapınız @endif'
         },
         anchor: {
             enableNavigation: true, // Enable/Disable anchor navigation 
