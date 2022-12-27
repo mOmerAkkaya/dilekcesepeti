@@ -163,7 +163,7 @@
             position: 'bottom', // none|top|bottom|both
             showNextButton: true, // show/hide a Next button
             showPreviousButton: true, // show/hide a Previous button
-            extraHtml: '@if (Auth::check())<button type="submit" class="btn btn-success" onclick="onFinish()">Bitir</button>@else Lütfen Giriş Yapınız @endif'
+            extraHtml: '@if (Auth::check())<button type="submit" class="btn btn-success" onclick="onFinish()">Bitir</button>@else Dökümanı Doldurmak İçin Lütfen Giriş Yapınız @endif'
         },
         anchor: {
             enableNavigation: true, // Enable/Disable anchor navigation 
@@ -174,7 +174,7 @@
             enableDoneStateNavigation: true // Enable/Disable the done state navigation
         },
         keyboard: {
-            keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+            keyNavigation: false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
             keyLeft: [37], // Left key code
             keyRight: [39] // Right key code
         },
