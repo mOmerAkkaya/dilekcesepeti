@@ -121,7 +121,7 @@
                 </form>
                 </p>
                 <p>
-                    @empty($data->comments)
+                    @isEmpty($data->comments)
                     @foreach($data->comments as $key => $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
