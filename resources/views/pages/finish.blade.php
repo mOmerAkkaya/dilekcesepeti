@@ -121,27 +121,28 @@
                 </form>
                 </p>
                 <p>
-                <div class="row row-cols-1 row-cols-md-1 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-</div>
-                <div class="card">
+                    @if($data->comments =! "")
                     @foreach($data->comments as $key => $value)
+                <div class="row row-cols-1 row-cols-md-1 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        {{$value->comment}}
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">{{$value->comment}}</p>
                     </div>
-                    @endforeach
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                    </div>
                 </div>
+                </div>
+                    @endforeach
+                    @else
+                    <div class="alert alert-dark" role="alert">
+                    Yorum Yok
+                    </div>
+                    @endif
                 </p>
             </div>
 
