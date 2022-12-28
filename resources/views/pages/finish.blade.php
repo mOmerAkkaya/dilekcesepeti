@@ -121,7 +121,7 @@
                 </form>
                 </p>
                 <p>
-                @forelse ($data->comments as $key => $value)
+                @forelse ($data->comments as $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card h-100">
