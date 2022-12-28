@@ -121,7 +121,7 @@
                 </form>
                 </p>
                 <p>
-                    @if($data->comments =! "")
+                    @if($data->comments != "")
                     @foreach($data->comments as $key => $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
@@ -132,7 +132,7 @@
                         <p class="card-text">{{$value->comment}}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <small class="text-muted">{{$value->created_at}}</small>
                     </div>
                     </div>
                 </div>
