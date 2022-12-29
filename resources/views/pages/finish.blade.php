@@ -121,20 +121,20 @@
                 </form>
                 </p>
                 <p>
-                    @php
-                    $comments = $data->comments;
-                    @endphp
+                @php
+                $comments = $data->comments;
+                @endphp
                 @forelse ($comments as $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card h-100">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">{{$value->comment}}</h5>
                         <p class="card-text">{{$value->comment}}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">{{$value->created_at}}</small>
+                        <small class="text-muted">{{date("d-m-Y h:i", strtotime($value->created_at))}}</small>
                     </div>
                     </div>
                 </div>
