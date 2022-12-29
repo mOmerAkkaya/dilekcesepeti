@@ -121,7 +121,10 @@
                 </form>
                 </p>
                 <p>
-                @forelse ($data->comments as $value)
+                @php
+                $comments = $data->comments;
+                @endphp
+                @foreach ($comments as $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card h-100">
@@ -136,11 +139,10 @@
                     </div>
                 </div>
                 </div>
-                @empty
+                @endforeach
                     <div class="alert alert-dark" role="alert">
                     Yorum Yok
                     </div>
-                @endforelse
                 </p>
             </div>
 
