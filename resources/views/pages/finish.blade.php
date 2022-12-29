@@ -131,7 +131,7 @@
                     <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png" class="card-img-top" alt="{{$value->comment}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$value->comment}}</h5>
-                        <p class="card-text">{{$value->comment->uname}}</p>
+                        <p class="card-text">{{\App\Models\User::where('id',$value->user_id)->first()->value('name')}}</p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{date("d-m-Y h:i", strtotime($value->created_at))}}</small>
