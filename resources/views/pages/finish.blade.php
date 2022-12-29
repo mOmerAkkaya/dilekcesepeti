@@ -107,7 +107,7 @@
                         <li><i class="bi bi-check-circle"></i> <span>Ortalama Süre : <b>{!!$data->time!!}</b> dk.</span></li>
                         <li><i class="bi bi-check-circle"></i> <span>Toplam Yorum : <b>{{$data->comments->count()}}</b></span></li>
                         <li><i class="bi bi-check-circle"></i> <span>İşlem Sayısı : <b>{{\App\Models\Orders::where('document_id',$data->id)->count()}}</b></span></li>
-                        <li><i class="bi bi-check-circle"></i> <span>{!!$data->law!!}</span></li>
+                        <li><i class="bi bi-check-circle"></i> <span>Hukuki Dayanak: <b>{!!$data->law!!}</b></span></li>
                     </ul>
                 </div>
                 <p>
@@ -128,10 +128,10 @@
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png" class="card-img-top" alt="{{$value->comment}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$value->comment}}</h5>
-                        <p class="card-text">{{$value->comment}}</p>
+                        <p class="card-text">{{$value->comment->uname}}</p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">{{date("d-m-Y h:i", strtotime($value->created_at))}}</small>
