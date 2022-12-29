@@ -128,7 +128,7 @@
                 <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card h-100">
-                    <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png" class="card-img-top" alt="{{$value->comment}}">
+                    <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Comments-512.png" class="card-img-top" style="width:50px;" alt="{{$value->comment}}">
                     <div class="card-body">
                         <h5 class="card-title">{{$value->comment}}</h5>
                         <p class="card-text">{{\App\Models\User::where('id',$value->user_id)->first()->value('name')}}</p>

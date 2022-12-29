@@ -99,7 +99,7 @@ class DocumentController extends Controller
     public function update(Request $request)
     {
         $page   =   Page::where('slug', 'show')->firstOrFail();
-        $data   =   Document::where('slug', $request->slug)->with('get_doc_type',)->firstOrFail();
+        $data   =   Document::where('slug', $request->slug)->with('get_doc_type')->firstOrFail();
         $steps  =   json_decode($data->steps, true);
         foreach ($steps as $key => $value){   
         $new    = $_POST[$value["name"]];
