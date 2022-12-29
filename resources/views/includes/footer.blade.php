@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
-                <a href="{{route('home')}}" class="logo d-flex align-items-center">
+                <a href="{{route('index')}}" class="logo d-flex align-items-center">
                     <span>{{ __('menu.name') }}</span>
                 </a>
                 <p>{{ __('footer.subtitle') }}</p>
@@ -19,7 +19,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>{{ __('footer.links') }}</h4>
                 <ul>
-                    <li><a href="{{route('home')}}">{{ __('menu.home') }}</a></li>
+                    <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
                     <li><a href="#">{{ __('footer.about') }}</a></li>
                     <li><a href="{{route('icerik.show',['gizlilik-bildirimi'])}}">Gizlilik Politikası</a></a></li>
                     <li><a href="{{route('icerik.show',['kullanim-sartlari'])}}">Kullanım Şartları</a></li>

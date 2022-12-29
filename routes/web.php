@@ -1,8 +1,22 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\MainPageController;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\PanelDocuments;
+use App\Http\Controllers\PanelContacts;
+use App\Http\Controllers\PanelContents;
+use App\Http\Controllers\PanelHome;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PayControlller;
+use App\Http\Controllers\PanelComments;
+use App\Http\Controllers\PanelMembers;
 
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
