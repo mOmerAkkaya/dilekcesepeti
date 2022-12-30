@@ -111,14 +111,18 @@
                     </ul>
                 </div>
                 <p>
-                <form action="{{ route('odeme.pay') }}" method="post">
+                <div class="card">
+                  <div class="card-body">
+                    <form action="{{ route('odeme.pay') }}" method="post">
                     @csrf
                     <input type="hidden" name="value" value="{{$process->key}}" />
                     <button type="submit" class="btn btn-primary">Satın Al</button>
                     <button type="button" class="btn btn-secondary" disabled>Kaydet</button>
                     <button type="button" class="btn btn-warning" disabled>İndir</button>
                     <button type="button" class="btn btn-dark" disabled>Yazdır</button>
-                </form>
+                    </form>
+                </div>
+                </div>
                 </p>
                 <p>
                 @php
