@@ -99,8 +99,8 @@
 
         <div class="row gy-4">
 
-            <div class="col-lg-4">
-                <div class="services-list">
+              <div class="card">
+                  <div class="card-body">
                     <h4>Döküman Hakkında Bilgi</h4>
                     <ul>
                         <li><i class="bi bi-check-circle"></i> <span>İşlem Ücreti: {!!$data->price !!} ₺</span></li>
