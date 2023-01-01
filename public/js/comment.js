@@ -21,6 +21,7 @@ jQuery(document).ready(function($){
             success: function (data) {
                 var todo = 'Yorumunuz kaydedildi.';
                 jQuery('#sonuc').append(todo);
+                $("#saveComment").attr('disabled', 'disabled');
             },
             error: function (data) {
                 console.log(data);
