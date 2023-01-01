@@ -9,6 +9,8 @@ use App\Http\Controllers\UploadController;
 use App\Models\Improve;
 use App\Model\Orders;
 use Throwable;
+use DB;
+
 
 class PanelDocuments extends Controller
 {
@@ -209,10 +211,8 @@ class PanelDocuments extends Controller
 
     public function truncate()
     {
-        $orders = \App\Models\Orders::all();
-        $orders->truncate();
-        $notif = \App\Models\Notification::all();
-        $notif->truncate();
+        DB::table('orders')->truncate();
+        DB::table('notifications')->truncate();
         return "Truncate Done";    
     }
 }
