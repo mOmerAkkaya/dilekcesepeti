@@ -7,6 +7,7 @@ use App\Models\Document;
 use App\Models\Values;
 use App\Http\Controllers\UploadController;
 use App\Models\Improve;
+use App\Model\Orders;
 use Throwable;
 
 class PanelDocuments extends Controller
@@ -204,5 +205,14 @@ class PanelDocuments extends Controller
     public function improve(){
         $data   =   Improve::orderBy('id', 'desc')->get();
         return view("panel.documents.improve", compact('data'));
+    }
+
+    public function truncate()
+    {
+        $orders = \App\Models\Orders::all();
+        $orders->truncate();
+        $notif = \App\Models\Notification::all();
+        $notif->truncate();
+        return "Truncate Done";    
     }
 }

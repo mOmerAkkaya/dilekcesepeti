@@ -18,6 +18,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PayControlller;
 use App\Http\Controllers\PanelComments;
 use App\Http\Controllers\PanelMembers;
+use App\Models\Orders;
 
 Auth::routes();
 Route::get('/', [MainPageController::class, 'index'])->name('index');
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'panel', 'as' => 'panel.', 'middleware' => 'AdminCheck
     Route::resource('orders', OrdersController::class);
 
     Route::get('/improve', [PanelDocuments::class, 'improve'])->name("improve");
+    Route::get('/truncate', [PanelDocuments::class, 'truncate'])->name("truncate");
 });
 
 Route::group(['prefix' => 'user', 'as' => 'user.', 'middleware' => 'auth'], function () {
@@ -66,4 +68,5 @@ Route::get('/clear-cache', function () {
     Artisan::call('config:clear');
     Artisan::call('view:clear');
     return "Cache is cleared";
-})->name("cache");;
+})->name("cache");
+
