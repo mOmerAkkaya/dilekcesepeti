@@ -36,10 +36,10 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $save = Comments::create([
-            'user_id'=> "1",
-            'document_id' => "40",
-            'rank' => "1",
-            'comment' => "merhaba",
+            'user_id'=> $request->user_id,
+            'document_id' => $request->document_id,
+            'rank' => 5,
+            'comment' => $request->comment,
         ]);
         return response()->json([$request->comment]);
     }

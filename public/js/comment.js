@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
             data: formData,
             dataType: 'json',
             success: function (data) {
-                var todo = formData.comment + ' Yorumunuz kaydedildi Eklendi';
+                var todo = 'Yorumunuz kaydedildi.';
                 jQuery('#sonuc').append(todo);
             },
             error: function (data) {

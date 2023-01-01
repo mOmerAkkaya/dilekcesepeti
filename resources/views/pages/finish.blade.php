@@ -165,36 +165,38 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
-                                    <input type="text" name="comment" id="comment" value="Yorum">
+                                    <input type="hidden" name="document_id" id="document_id" value="{{$data->id}}">
+                                    <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
+                                    <input type="text" name="comment" id="comment" placeholder="Yorum">
                                     <button type="button" class="btn btn-dark" id="saveComment">Yorum Yap</button>
                                 </form>
                                 <div id="sonuc"></div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    </p>
                 </div>
+                </p>
+            </div>
 
-                <div class="col-lg-8">
-                    <div class="services-list">
-                        <div class="watermark">
-                            <!-- Watermark container -->
-                            <div class="watermark__inner">
-                                <!-- The watermark -->
-                                <div class="watermark__body">
-                                    <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
-                                </div>
+            <div class="col-lg-8">
+                <div class="services-list">
+                    <div class="watermark">
+                        <!-- Watermark container -->
+                        <div class="watermark__inner">
+                            <!-- The watermark -->
+                            <div class="watermark__body">
+                                <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
                             </div>
-                            <page size="A4">{!! $data->template !!}</page>
                         </div>
+                        <page size="A4">{!! $data->template !!}</page>
                     </div>
-
                 </div>
 
             </div>
 
         </div>
+
+    </div>
 </section><!-- End Service Details Section -->
 </main><!-- End #main -->
 @endsection
