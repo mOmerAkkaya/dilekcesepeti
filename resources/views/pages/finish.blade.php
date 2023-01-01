@@ -64,6 +64,10 @@
         /* Disable the selection */
         user-select: none;
     }
+    .center {
+        margin: 0 auto 0 auto;
+        display: table;
+    }
 </style>
 <script>
     $(document).ready(function() {
@@ -99,7 +103,7 @@
 
         <div class="row gy-4">
 
-        <div class="col-lg-4">
+            <div class="col-lg-4">
                 <div class="services-list">
                     <h4>Döküman Hakkında Bilgi</h4>
                     <ul>
@@ -112,40 +116,40 @@
                 </div>
                 <p>
                 <div class="card">
-                  <div class="card-body">
-                    <form action="{{ route('odeme.pay') }}" method="post">
-                    @csrf
-                    <input type="hidden" name="value" value="{{$process->key}}" />
-                    <button type="submit" class="btn btn-primary">Satın Al</button>
-                    <button type="button" class="btn btn-secondary" disabled>Kaydet</button>
-                    <button type="button" class="btn btn-warning" disabled>İndir</button>
-                    <button type="button" class="btn btn-dark" disabled>Yazdır</button>
-                    </form>
-                </div>
+                    <div class="card-body center">
+                        <form action="{{ route('odeme.pay') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="value" value="{{$process->key}}" />
+                            <button type="submit" class="btn btn-primary">Satın Al</button>
+                            <button type="button" class="btn btn-secondary" disabled>Kaydet</button>
+                            <button type="button" class="btn btn-warning" disabled>İndir</button>
+                            <button type="button" class="btn btn-dark" disabled>Yazdır</button>
+                        </form>
+                    </div>
                 </div>
                 </p>
                 <p>
-                @php
-                $comments = $data->comments;
-                @endphp
-                @forelse ($comments as $value)
+                    @php
+                    $comments = $data->comments;
+                    @endphp
+                    @forelse ($comments as $value)
                 <div class="row row-cols-1 row-cols-md-1 g-4">
-                <div class="col">
-                    <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$value->comment}}</h5>
-                        <p class="card-text">{{\App\Models\User::where('id',$value->user_id)->first()->value('name')}}</p>
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{$value->comment}}</h5>
+                                <p class="card-text">{{\App\Models\User::where('id',$value->user_id)->first()->value('name')}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">{{date("d-m-Y h:i", strtotime($value->created_at))}}</small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <small class="text-muted">{{date("d-m-Y h:i", strtotime($value->created_at))}}</small>
-                    </div>
-                    </div>
-                </div>
                 </div>
                 @empty
-                    <div class="alert alert-dark" role="alert">
+                <div class="alert alert-dark" role="alert">
                     Yorum Yok
-                    </div>
+                </div>
                 @endforelse
                 </p>
             </div>
