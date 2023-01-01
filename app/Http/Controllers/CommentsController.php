@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Comments;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         $save = Comments::create([
-            'user_id'=> $request->user_id,
+            'user_id'=> Auth::id(),
             'document_id' => $request->document_id,
             'rank' => 5,
             'comment' => $request->comment,

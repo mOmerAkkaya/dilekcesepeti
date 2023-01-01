@@ -8,6 +8,8 @@ jQuery(document).ready(function($){
         e.preventDefault();
         var formData = {
             comment: jQuery('#comment').val(),
+            document_id: jQuery('#document_id').val(),
+
         };
         var type = "post";
         var ajaxurl = '/comment/store';
