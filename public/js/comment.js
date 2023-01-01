@@ -10,7 +10,7 @@ jQuery(document).ready(function($){
             comment: jQuery('#comment').val(),
         };
         var type = "GET";
-        var ajaxurl = 'https://dilekcesepeti.com.tr/comment/store';
+        var ajaxurl = '/comment/store';
         $.ajax({
             type: type,
             url: ajaxurl,
