@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <br>
+                <br><br>
                 @empty
                 <div class="alert alert-dark" role="alert">
                     Yorum Yok
