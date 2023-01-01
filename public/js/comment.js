@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
         var formData = {
             comment: jQuery('#comment').val(),
         };
-        var type = "GET";
+        var type = "post";
         var ajaxurl = '/comment/store';
         $.ajax({
             type: type,
