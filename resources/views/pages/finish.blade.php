@@ -3,6 +3,7 @@
 @section('panel.index', '')
 @section('css')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{{asset('js/comment.js')}}"></script>
 <style>
     page {
         background: white;
@@ -64,6 +65,7 @@
         /* Disable the selection */
         user-select: none;
     }
+
     .center {
         margin: 0 auto 0 auto;
         display: table;
@@ -152,27 +154,47 @@
                 </div>
                 @endforelse
                 </p>
-            </div>
-
-            <div class="col-lg-8">
-                <div class="services-list">
-                    <div class="watermark">
-                        <!-- Watermark container -->
-                        <div class="watermark__inner">
-                            <!-- The watermark -->
-                            <div class="watermark__body">
-                                <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
+                <p>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Yorum Yap
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
+                                    <input type="text" name="comment" id="comment" value="Yorum">
+                                    <button type="button" class="btn btn-dark" id="saveComment">Yorum Yap</button>
+                                </form>
+                                <div id="sonuc"></div>
+                                </div>
                             </div>
                         </div>
-                        <page size="A4">{!! $data->template !!}</page>
                     </div>
+                    </p>
+                </div>
+
+                <div class="col-lg-8">
+                    <div class="services-list">
+                        <div class="watermark">
+                            <!-- Watermark container -->
+                            <div class="watermark__inner">
+                                <!-- The watermark -->
+                                <div class="watermark__body">
+                                    <center>DİLEKÇE SEPETİ<br>dilekcesepeti.com.tr</center>
+                                </div>
+                            </div>
+                            <page size="A4">{!! $data->template !!}</page>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
-
-    </div>
 </section><!-- End Service Details Section -->
 </main><!-- End #main -->
 @endsection

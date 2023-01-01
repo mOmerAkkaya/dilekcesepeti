@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MainPageController;
@@ -25,6 +26,8 @@ Route::resource('icerik', PageController::class);
 Route::resource('dokuman', DocumentController::class);
 Route::resource('iletisim', ContactController::class);
 Route::resource('sepet', BasketController::class);
+Route::GET('comment/store', [CommentsController::class, 'store'])->name('comment.store');
+
 
 
 Route::group(['prefix' => 'dokumanlar', 'as' => 'document.'], function () {
