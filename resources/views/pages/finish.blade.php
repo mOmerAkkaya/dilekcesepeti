@@ -2,6 +2,7 @@
 @section('title', 'Döküman Oluşturma - '. $data->name)
 @section('panel.index', '')
 @section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="{{asset('js/comment.js')}}"></script>
 <style>
@@ -167,7 +168,7 @@
                                 <form id="myForm" name="myForm" class="form-horizontal" novalidate="">
                                     <input type="hidden" name="document_id" id="document_id" value="{{$data->id}}">
                                     <input type="hidden" name="user_id" id="user_id" value="{{auth()->user()->id}}">
-                                    <input type="text" required minsize="3" name="comment" id="comment" placeholder="Yorum">
+                                    <input type="text" minsize="3" name="comment" id="comment" placeholder="Yorum">
                                     <button type="button" class="btn btn-dark" id="saveComment">Yorum Yap</button>
                                 </form>
                                 <div id="sonuc"></div>
