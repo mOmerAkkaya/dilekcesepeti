@@ -10,6 +10,7 @@ use App\Models\Orders;
 use Illuminate\Http\Request;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrdersController;
+use App\Models\Values;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -71,9 +72,10 @@ class DocumentController extends Controller
      */
     public function show($slug, Request $request)
     {
+        $value  =   Values::all();
         $page   =   Page::where('slug', 'show')->firstOrFail();
         $data   =   Document::where('slug', $slug)->with('get_doc_type')->firstOrFail();
-        return view('pages.show', compact('data','page'));
+        return view('pages.show', compact('data','page','value'));
     }
 
     /**
