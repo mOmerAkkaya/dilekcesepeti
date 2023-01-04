@@ -38,7 +38,6 @@
                     <li>{{$value[$data->doc_type]->value}}</li>
                     <li>{{$value[$data->cat]->value}}</li>
                     <li>{{$value[$data->sub_cat]->value}}</li>
-                    <li>{{ __('menu.create') }}</li>
                 </ol>
             </div>
         </nav>
