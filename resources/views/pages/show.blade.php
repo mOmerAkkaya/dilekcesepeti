@@ -35,9 +35,9 @@
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li><a href="{{route('index')}}">{{$value[$data->doc_type]->value}}</a></li>
-                    <li><a href="{{route('index')}}">{{$value[$data->cat]->value}}</a></li>
-                    <li><a href="{{route('index')}}">{{$value[$data->sub_cat]->value}}</a></li>
+                    <li>{{$value[$data->doc_type]->value}}</li>
+                    <li>{{$value[$data->cat]->value}}</li>
+                    <li>{{$value[$data->sub_cat]->value}}</li>
                     <li>{{ __('menu.create') }}</li>
                 </ol>
             </div>
