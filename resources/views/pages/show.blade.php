@@ -35,15 +35,14 @@
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li>{{@$value[$data->doc_type]->value}}</li>
-                    <li>{{@$value[$data->cat]->value}}</li>
-                    <li>{{@$value[$data->sub_cat]->value}}</li>
+                    <li>{{@$value[$data->doc_type]}}</li>
+                    <li>{{@$value[$data->cat]}}</li>
+                    <li>{{@$value[$data->sub_cat]}}</li>
                 </ol>
             </div>
         </nav>
     </div><!-- End Breadcrumbs -->
-{{$value}}
-{{$data}}
+    
     <!-- ======= Service Details Section ======= -->
     <section id="service-details" class="service-details">
         <div class="container" data-aos="fade-up">
