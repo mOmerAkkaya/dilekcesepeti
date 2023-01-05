@@ -37,7 +37,7 @@ $value = json_decode($value);
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li>{{$value}}</li>
+                    <li>{{$value[0]}}</li>
                     
                 </ol>
             </div>
