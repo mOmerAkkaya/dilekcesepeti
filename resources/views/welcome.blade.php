@@ -157,7 +157,7 @@
                         <div class="card-img">
                             <img src="{{asset('img/first-service.jpg')}}" alt="" class="img-fluid">
                         </div>
-                        <h3><a href="service-details.html" class="stretched-link">{{ __('pages/index.services.first') }}</a></h3>
+                        <h3><a href="{{route('icerik.show',['dilekce-hazirlama'])}}" class="stretched-link">{{ __('pages/index.services.first') }}</a></h3>
                         <p style="text-align: justify;">{{ __('pages/index.services.firstSub') }}</p>
                     </div>
                 </div><!-- End Card Item -->
@@ -167,7 +167,7 @@
                         <div class="card-img">
                             <img src="{{asset('img/second-service.jpg')}}" alt="" class="img-fluid">
                         </div>
-                        <h3><a href="service-details.html" class="stretched-link">{{ __('pages/index.services.second') }}</a></h3>
+                        <h3><a href="{{route('icerik.show',['sozlesme-hazirlama'])}}" class="stretched-link">{{ __('pages/index.services.second') }}</a></h3>
                         <p style="text-align: justify;">{{ __('pages/index.services.secondSub') }}</p>
                     </div>
                 </div><!-- End Card Item -->
