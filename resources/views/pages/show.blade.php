@@ -17,12 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 @endsection
 @section('content')
-@php
-$value = json_decode($value);
-foreach($value as $key => $item){
-    echo $key  . " - " .$value;
-}
-@endphp
+
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -40,8 +35,9 @@ foreach($value as $key => $item){
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li></li>
-                    
+                    <li>{{$value[@$data->doc_type]->value}}</li>
+                    <li>{{$value[@$data->cat]->value}}</li>
+                    <li>{{$value[@$data->sub_cat]->value}}</li>
                 </ol>
             </div>
         </nav>
