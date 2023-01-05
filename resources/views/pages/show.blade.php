@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 @endsection
 @section('content')
-@php 
+@php
 $value = json_decode($value);
 @endphp
 <main id="main">
@@ -37,10 +37,8 @@ $value = json_decode($value);
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li><!--{{@$value[$data->doc_type]}}</li>
-                    <li>{{@$value[$data->cat]}}</li>
-                    <li>{{@$value[$data->sub_cat]}}</li>
--->
+                    <li>{{$value[$data->doc_type]["value"]}}</li>
+                    
                 </ol>
             </div>
         </nav>
