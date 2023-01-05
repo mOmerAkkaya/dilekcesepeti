@@ -43,6 +43,7 @@
         </nav>
     </div><!-- End Breadcrumbs -->
 {{$value}}
+{{$data}}
     <!-- ======= Service Details Section ======= -->
     <section id="service-details" class="service-details">
         <div class="container" data-aos="fade-up">
