@@ -19,6 +19,9 @@
 @section('content')
 @php
 $value = json_decode($value);
+foreach($value as $key => $item){
+    echo $key  . " - " .$value;
+}
 @endphp
 <main id="main">
 
@@ -37,7 +40,7 @@ $value = json_decode($value);
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li>{{$value[0]}}</li>
+                    <li></li>
                     
                 </ol>
             </div>
