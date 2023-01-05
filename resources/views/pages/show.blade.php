@@ -17,7 +17,9 @@
 <script src="https://cdn.jsdelivr.net/npm/smartwizard@6/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
 @endsection
 @section('content')
-
+@php 
+$value = json_decode($value);
+@endphp
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
@@ -42,7 +44,7 @@
             </div>
         </nav>
     </div><!-- End Breadcrumbs -->
-    
+
     <!-- ======= Service Details Section ======= -->
     <section id="service-details" class="service-details">
         <div class="container" data-aos="fade-up">
