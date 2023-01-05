@@ -37,9 +37,10 @@ $value = json_decode($value);
             <div class="container">
                 <ol>
                     <li><a href="{{route('index')}}">{{ __('menu.home') }}</a></li>
-                    <li>{{@$value[$data->doc_type]}}</li>
+                    <li><!--{{@$value[$data->doc_type]}}</li>
                     <li>{{@$value[$data->cat]}}</li>
                     <li>{{@$value[$data->sub_cat]}}</li>
+-->
                 </ol>
             </div>
         </nav>
