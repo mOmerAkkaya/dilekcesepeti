@@ -177,7 +177,7 @@
                         <div class="card-img">
                             <img src="{{asset('img/third-service.jpg')}}" alt="" class="img-fluid">
                         </div>
-                        <h3><a href="service-details.html" class="stretched-link">{{ __('pages/index.services.third') }}</a></h3>
+                        <h3><a href="{{route('icerik.show',['hukuki-danismanlik'])}}" class="stretched-link">{{ __('pages/index.services.third') }}</a></h3>
                         <p style="text-align: justify;">{{ __('pages/index.services.thirdSub') }}</p>
                     </div>
                 </div><!-- End Card Item -->
@@ -187,7 +187,7 @@
                         <div class="card-img">
                             <img src="{{asset('img/fourth-service.jpg')}}" alt="" class="img-fluid">
                         </div>
-                        <h3><a href="service-details.html" class="stretched-link">{{ __('pages/index.services.fourth') }}</a></h3>
+                        <h3><a href="{{route('icerik.show',['dava-dilekcesi'])}}" class="stretched-link">{{ __('pages/index.services.fourth') }}</a></h3>
                         <p style="text-align: justify;">{{ __('pages/index.services.fourthSub') }}</p>
                     </div>
                 </div><!-- End Card Item -->
