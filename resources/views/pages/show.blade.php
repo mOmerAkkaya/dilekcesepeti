@@ -97,10 +97,11 @@
                         <p class="card-text">{!! $data->description !!}</p>
                     </div>
                 </div>
+                <br>
                 <div class="card">
                     <h5 class="card-header">Yayın Tarihi</h5>
                     <div class="card-body">
-                        <p class="card-text">{!! $data->created_at !!}</p>
+                        <p class="card-text">{!! Carbon::parse(date_format($data->created_at,'d/m/Y H:i:s')!!}</p>
                     </div>
                 </div>
             </div>
