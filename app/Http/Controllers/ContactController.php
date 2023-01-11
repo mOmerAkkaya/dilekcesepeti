@@ -6,7 +6,7 @@ use App\Models\Contact;
 use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\NotificationController;
-
+use Illuminate\Support\Facades\Redirect;
 class ContactController extends Controller
 {
 
@@ -17,7 +17,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-       abort(301);
+        return Redirect::to('/iletisim/create', 301); 
     }
 
     /**
