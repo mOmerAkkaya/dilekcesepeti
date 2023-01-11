@@ -17,7 +17,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-       return "ÖMERasdasdsd";
+       abort(401);
     }
 
     /**
