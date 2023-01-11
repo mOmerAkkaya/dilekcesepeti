@@ -97,6 +97,12 @@
                         <p class="card-text">{!! $data->description !!}</p>
                     </div>
                 </div>
+                <div class="card">
+                    <h5 class="card-header">Yayın Tarihi</h5>
+                    <div class="card-body">
+                        <p class="card-text">{!! $data->created_at !!}</p>
+                    </div>
+                </div>
             </div>
 
 
