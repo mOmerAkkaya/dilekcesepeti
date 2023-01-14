@@ -30,7 +30,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-4">
-                                    <center><img style="width: 30%;" src="http://dilekcesepeti.test/img/dilekce.jpg" /></center>
+                                    <center><img style="width: 30%;" src="http://dilekcesepeti.com.tr/img/dilekce.jpg" /></center>
                                     <form method="POST" action="{{ route('register') }}">
                                         @csrf
 
