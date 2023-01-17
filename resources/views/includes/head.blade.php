@@ -17,8 +17,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="https://dilekcesepeti.com.tr/img/dilekce.jpg" />
-<meta name="twitter:title" content="@yield('title', $page->description)" />
-<meta name="twitter:description" content="@yield('title', $page->description)" />
+<meta name="twitter:title" content="@yield('title', @$data->description)" />
+<meta name="twitter:description" content="@yield('title', @$data->description)" />
 <meta name="twitter:url" content="{{url()->full()}}" />
 <meta name="twitter:image" content="https://dilekcesepeti.com.tr/img/dilekce.jpg" />
 
