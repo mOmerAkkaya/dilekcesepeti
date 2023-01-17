@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('home','active')
-@section("title","Dilekçe Sepeti, Türkiye'nin lider dilekçe ve evrak çözümleri sağlayıcısıdır. Dilekçe örneklerini indirebilir, dilerseniz dilekçe örneklerine ulaşabileceğiniz bir web sitesidir. Tüm dilekçe ve evrak işlemleriniz için doğru adres")
+@section("title","Dilekçe Sepeti, Dilekçe Yazmanın Yeni Yolu, Hızlıca Dilekçe Yazın")
+@section("description","Dilekçe Sepeti, Türkiye'nin lider dilekçe ve evrak çözümleri sağlayıcısıdır. Dilekçe örneklerini indirebilir, dilerseniz dilekçe örneklerine ulaşabileceğiniz bir web sitesidir. Tüm dilekçe ve evrak işlemleriniz için doğru adres")
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="hero d-flex align-items-center">
