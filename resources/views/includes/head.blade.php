@@ -2,7 +2,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <title>@yield('title', $page->title) - Dilekçe Sepeti</title>
-<meta name="description" content="@yield('title', $page->description) - Dilekçe Sepeti">
+<meta name="description" content="@yield('description', $page->description) - Dilekçe Sepeti">
 
 @if ($page->no_index=="yes")
 <meta name="robots" content="noindex">
@@ -18,7 +18,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="https://dilekcesepeti.com.tr/img/dilekce.jpg" />
 <meta name="twitter:title" content="@yield('title', @$data->description)" />
-<meta name="twitter:description" content="@yield('title', @$data->description)" />
+<meta name="twitter:description" content="@yield('description', @$data->description)" />
 <meta name="twitter:url" content="{{url()->full()}}" />
 <meta name="twitter:image" content="https://dilekcesepeti.com.tr/img/dilekce.jpg" />
 
