@@ -2,7 +2,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
 <title>@yield('title', $page->title) - Dilekçe Sepeti</title>
-<meta name="description" content="@yield('description', $page->description) - Dilekçe Sepeti">
+<meta name="description" content="@yield('description', substr($page->description, 0, 140)) - Dilekçe Sepeti">
 
 @if ($page->no_index=="yes")
 <meta name="robots" content="noindex">
