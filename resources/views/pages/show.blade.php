@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', $data->name)
-@section('description', $data->description)
+@section('description', substr($data->description, 0, 140))
 @section('panel.index', '')
 @section('css')
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
