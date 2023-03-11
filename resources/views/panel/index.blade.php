@@ -93,7 +93,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{date('Y')}} Üye İstatistikleri</h5>
+                        <h5 class="card-title">{{date('Y')}} Üyelik İstatistikleri</h5>
 
                         <!-- Line Chart -->
                         <div id="lineChart"></div>
